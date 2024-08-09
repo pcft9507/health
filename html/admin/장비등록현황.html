@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>지멘스</title>
+  <link rel="stylesheet" href="/assets/css/admin_style.css" />
+  <link rel="stylesheet" href=" /assets/css/jquery-ui.min.css">
+  <script src=" /assets/js/jquery-3.7.1.min.js"></script>
+  <script src=" /assets/js/jquery-ui.min.js"></script>  
+  <script src="/assets/js/ui.js"></script>
+</head>
+
+
+<body>
+  <!-- wrap -->
+  <div class="wrap">
+    <div class="wrap-flex">
+      <!-- header -->
+      <header class="header">
+  <div class="logo-wrap">
+    <h1 class="logo"><a href="#"><img src="/assets/img/admin/logo@2x.png" alt="dx service issue handling platform"></a></h1>
+  </div>
+
+  <div class="header-container">
+    <div class="profile-box">
+      <div class="profile-box__img-box"><img src="/assets/img/admin/profile@2x.png" alt="회원 사진" class="profile-box__img"></div>
+    
+      <p class="profile-box__welcome-txt">안녕하세요!<br>홍길동님</p>
+    </div>
+    
+    <div class="nav-container">
+      <nav class="gnb">
+        <ul class="gnb__list">
+          <li class="gnb__category"><span class="gnb__category-txt">사용자 관리</span>
+            <ul class="gnb__sub">
+              <li class="gnb__sub-item"><a href="#" class="gnb__sub-btn">사용자 현황 관리</a></li>
+            </ul>
+          </li>
+          <li class="gnb__category"><span class="gnb__category-txt">데이터 관리</span>
+            <ul class="gnb__sub">
+              <li class="gnb__sub-item"><a href="#" class="gnb__sub-btn">병원 등록 현황</a></li>
+              <li class="gnb__sub-item"><a href="#" class="gnb__sub-btn">공휴일 등록</a></li>
+              <li class="gnb__sub-item"><a href="#" class="gnb__sub-btn">PUSH/메일 이력 관리</a></li>
+              <li class="gnb__sub-item"><a href="#" class="gnb__sub-btn">장비 등록 관리</a></li>
+              <li class="gnb__sub-item"><a href="#" class="gnb__sub-btn">장비 목록 관리</a></li>
+            </ul>
+          </li>
+          <li class="gnb__category"><span class="gnb__category-txt">QR 코드 관리</span>
+            <ul class="gnb__sub">
+              <li class="gnb__sub-item"><a href="#" class="gnb__sub-btn">QR 코드 신규 등록</a></li>
+              <li class="gnb__sub-item"><a href="#" class="gnb__sub-btn">QR 코드 재발급</a></li>
+              <li class="gnb__sub-item"><a href="#" class="gnb__sub-btn">PUSH/메일 이력 관리</a></li>
+              <li class="gnb__sub-item"><a href="#" class="gnb__sub-btn">장비 등록 관리</a></li>
+              <li class="gnb__sub-item"><a href="#" class="gnb__sub-btn">장비 목록 관리</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    
+    <div class="header-foot">
+      <button class="logout" title="로그아웃">
+        <span class="txt">Logout</span>
+      </button>
+
+      <span class="connecting-time">접속시간  2024.07.03 14:21</span>
+    </div>
+  </div>
+</header>
+      <!-- header end -->
+      
+      <!-- container-wrap -->
+      <div class="container-wrap">
+        <div class="container">
+          <div class="cont-head">
+            <div class="ch-h">
+              <div class="ch-h__bc">
+                <a href="@@ah/사용자목록.html" class="ch-h__target">홈</a>
+                <a href="@@ah/데이터관리_병원목록관리.html" class="ch-h__target">데이터 관리</a>
+                <a href="@@ah/장비등록현황.html" class="ch-h__target on">장비등록현황</a>
+              </div>
+        
+              <div class="ch-h__logo"><img src="/assets/img/Siemens_logo@2x.png" alt="siemens healthineers"></div>
+            </div>
+        
+            <h2 class="page-title mt-20">공휴일 등록</h2>
+          </div>
+        
+          <div class="content mt-20">
+            <div class="sch-box">
+              <div class="sch-box__sub">
+                <div class="radio-group">
+                  <div class="radio">
+                    <input type="radio" id="equipment1" name="equipment" checked class="radio__input">
+                    <label for="equipment1" class="radio__label">전체</label>
+                  </div>
+                  <div class="radio">
+                    <input type="radio" id="equipment2" name="equipment" checked class="radio__input">
+                    <label for="equipment2" class="radio__label">병원명</label>
+                  </div>
+                  <div class="radio">
+                    <input type="radio" id="equipment3" name="equipment" checked class="radio__input">
+                    <label for="equipment3" class="radio__label">병원코드</label>
+                  </div>
+                </div>
+                
+                <input type="text" class="sch-box__input input-txt ml-20" title="장비명을 입력하세요">
+                
+                <div class="select sch-box__select ml-30">
+                  <label for="condition" class="select__label">사용유무</label>
+                
+                  <select name="" id="condition" class="select__select">
+                    <option value="">선택1</option>
+                    <option value="">선택2</option>
+                    <option value="">선택3</option>
+                    <option value="">선택4</option>
+                    <option value="">선택5</option>
+                  </select>
+                </div>
+              </div>
+        
+              <button type="button" class="sch-box__btn-sch btn-default confirm">검색</button>
+            </div>
+        
+            <div class="table mt-20">
+              <table class="tbl-list eq-list">
+                <caption>병원 등록 현황 게시판</caption>
+        
+                <colgroup>
+                  <col class="eq-col01">
+                  <col class="eq-col02">
+                  <col class="eq-col03">
+                  <col class="eq-col04">
+                  <col class="eq-col05">
+                  <col class="eq-col06">
+                  <col class="eq-col07">
+                  <col class="eq-col08">
+                  <col class="eq-col09">
+                  <col class="eq-col10">
+                  <col class="eq-col11">
+                  <col class="eq-col12">
+                  <col class="eq-col13">
+                  <col class="eq-col14">
+                </colgroup>
+        
+                <thead>
+                  <tr>
+                    <th>NO</th>
+                    <th>Partner No.</th>
+                    <th>Partner Name</th>
+                    <th>Hospital No.</th>
+                    <th>Hospital Name</th>
+                    <th>Main Equip. No</th>
+                    <th>Equipment Name</th>
+                    <th>Serial No.</th>
+                    <th>GG</th>
+                    <th>Service by</th>
+                    <th>Functional<br>Location</th>
+                    <th>User<br>Status</th>
+                    <th>Material No.</th>
+                    <th>update</th>
+                  </tr>
+                </thead>
+        
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>40164845</td>
+                    <td>한독</td>
+                    <td>90021181</td>
+                    <td>목포한국병원</td>
+                    <td>7400000006015</td>
+                    <td>IRH003191907</td>
+                    <td>HHS</td>
+                    <td>DL</td>
+                    <td>728-90021181-LT02</td>
+                    <td>ACTV</td>
+                    <td>10444868</td>
+                    <td><span class="update-txt on">홍길동<br>2024.07.12</span></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>40164845</td>
+                    <td>한독</td>
+                    <td>90021181</td>
+                    <td>목포한국병원</td>
+                    <td>7400000006015</td>
+                    <td>IRH003191907</td>
+                    <td>HHS</td>
+                    <td>DL</td>
+                    <td>728-90021181-LT02</td>
+                    <td>ACTV</td>
+                    <td>10444868</td>
+                    <td><span class="update-txt on">홍길동<br>2024.07.12</span></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>40164845</td>
+                    <td>한독</td>
+                    <td>90021181</td>
+                    <td>목포한국병원</td>
+                    <td>7400000006015</td>
+                    <td>IRH003191907</td>
+                    <td>HHS</td>
+                    <td>DL</td>
+                    <td>728-90021181-LT02</td>
+                    <td>ACTV</td>
+                    <td>10444868</td>
+                    <td><span class="update-txt on">홍길동<br>2024.07.12</span></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>40164845</td>
+                    <td>한독</td>
+                    <td>90021181</td>
+                    <td>목포한국병원</td>
+                    <td>7400000006015</td>
+                    <td>IRH003191907</td>
+                    <td>HHS</td>
+                    <td>DL</td>
+                    <td>728-90021181-LT02</td>
+                    <td>ACTV</td>
+                    <td>10444868</td>
+                    <td><span class="update-txt on">홍길동<br>2024.07.12</span></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>40164845</td>
+                    <td>한독</td>
+                    <td>90021181</td>
+                    <td>목포한국병원</td>
+                    <td>7400000006015</td>
+                    <td>IRH003191907</td>
+                    <td>HHS</td>
+                    <td>DL</td>
+                    <td>728-90021181-LT02</td>
+                    <td>ACTV</td>
+                    <td>10444868</td>
+                    <td><span class="update-txt on">홍길동<br>2024.07.12</span></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>40164845</td>
+                    <td>한독</td>
+                    <td>90021181</td>
+                    <td>목포한국병원</td>
+                    <td>7400000006015</td>
+                    <td>IRH003191907</td>
+                    <td>HHS</td>
+                    <td>DL</td>
+                    <td>728-90021181-LT02</td>
+                    <td>ACTV</td>
+                    <td>10444868</td>
+                    <td><span class="update-txt on">홍길동<br>2024.07.12</span></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>40164845</td>
+                    <td>한독</td>
+                    <td>90021181</td>
+                    <td>목포한국병원</td>
+                    <td>7400000006015</td>
+                    <td>IRH003191907</td>
+                    <td>HHS</td>
+                    <td>DL</td>
+                    <td>728-90021181-LT02</td>
+                    <td>ACTV</td>
+                    <td>10444868</td>
+                    <td><span class="update-txt on">홍길동<br>2024.07.12</span></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>40164845</td>
+                    <td>한독</td>
+                    <td>90021181</td>
+                    <td>목포한국병원</td>
+                    <td>7400000006015</td>
+                    <td>IRH003191907</td>
+                    <td>HHS</td>
+                    <td>DL</td>
+                    <td>728-90021181-LT02</td>
+                    <td>ACTV</td>
+                    <td>10444868</td>
+                    <td><span class="update-txt">홍길동<br>2024.07.12</span></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>40164845</td>
+                    <td>한독</td>
+                    <td>90021181</td>
+                    <td>목포한국병원</td>
+                    <td>7400000006015</td>
+                    <td>IRH003191907</td>
+                    <td>HHS</td>
+                    <td>DL</td>
+                    <td>728-90021181-LT02</td>
+                    <td>ACTV</td>
+                    <td>10444868</td>
+                    <td><span class="update-txt">홍길동<br>2024.07.12</span></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>40164845</td>
+                    <td>한독</td>
+                    <td>90021181</td>
+                    <td>목포한국병원</td>
+                    <td>7400000006015</td>
+                    <td>IRH003191907</td>
+                    <td>HHS</td>
+                    <td>DL</td>
+                    <td>728-90021181-LT02</td>
+                    <td>ACTV</td>
+                    <td>10444868</td>
+                    <td><span class="update-txt">홍길동<br>2024.07.12</span></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>40164845</td>
+                    <td>한독</td>
+                    <td>90021181</td>
+                    <td>목포한국병원</td>
+                    <td>7400000006015</td>
+                    <td>IRH003191907</td>
+                    <td>HHS</td>
+                    <td>DL</td>
+                    <td>728-90021181-LT02</td>
+                    <td>ACTV</td>
+                    <td>10444868</td>
+                    <td><span class="update-txt">홍길동<br>2024.07.12</span></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>40164845</td>
+                    <td>한독</td>
+                    <td>90021181</td>
+                    <td>목포한국병원</td>
+                    <td>7400000006015</td>
+                    <td>IRH003191907</td>
+                    <td>HHS</td>
+                    <td>DL</td>
+                    <td>728-90021181-LT02</td>
+                    <td>ACTV</td>
+                    <td>10444868</td>
+                    <td><span class="update-txt">홍길동<br>2024.07.12</span></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>40164845</td>
+                    <td>한독</td>
+                    <td>90021181</td>
+                    <td>목포한국병원</td>
+                    <td>7400000006015</td>
+                    <td>IRH003191907</td>
+                    <td>HHS</td>
+                    <td>DL</td>
+                    <td>728-90021181-LT02</td>
+                    <td>ACTV</td>
+                    <td>10444868</td>
+                    <td><span class="update-txt">홍길동<br>2024.07.12</span></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>40164845</td>
+                    <td>한독</td>
+                    <td>90021181</td>
+                    <td>목포한국병원</td>
+                    <td>7400000006015</td>
+                    <td>IRH003191907</td>
+                    <td>HHS</td>
+                    <td>DL</td>
+                    <td>728-90021181-LT02</td>
+                    <td>ACTV</td>
+                    <td>10444868</td>
+                    <td><span class="update-txt">홍길동<br>2024.07.12</span></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>40164845</td>
+                    <td>한독</td>
+                    <td>90021181</td>
+                    <td>목포한국병원</td>
+                    <td>7400000006015</td>
+                    <td>IRH003191907</td>
+                    <td>HHS</td>
+                    <td>DL</td>
+                    <td>728-90021181-LT02</td>
+                    <td>ACTV</td>
+                    <td>10444868</td>
+                    <td><span class="update-txt">홍길동<br>2024.07.12</span></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>40164845</td>
+                    <td>한독</td>
+                    <td>90021181</td>
+                    <td>목포한국병원</td>
+                    <td>7400000006015</td>
+                    <td>IRH003191907</td>
+                    <td>HHS</td>
+                    <td>DL</td>
+                    <td>728-90021181-LT02</td>
+                    <td>ACTV</td>
+                    <td>10444868</td>
+                    <td><span class="update-txt">홍길동<br>2024.07.12</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="pg mt-30">
+              <ul class="pg__list">
+                <li class="pg__item"><a href="#" class="pg__num"><img src="/assets/img/admin/bo-prev-all.png" alt="처음"></a></li>
+                <li class="pg__item"><a href="#" class="pg__num"><img src="/assets/img/admin/bo-prev.png" alt="이전"></a></li>
+                <li class="pg__item"><a href="#" class="pg__num active">1</a></li>
+                <li class="pg__item"><a href="#" class="pg__num">2</a></li>
+                <li class="pg__item"><a href="#" class="pg__num">3</a></li>
+                <li class="pg__item"><a href="#" class="pg__num">4</a></li>
+                <li class="pg__item"><a href="#" class="pg__num">5</a></li>
+                <li class="pg__item"><a href="#" class="pg__num">6</a></li>
+                <li class="pg__item"><a href="#" class="pg__num">7</a></li>
+                <li class="pg__item"><a href="#" class="pg__num">8</a></li>
+                <li class="pg__item"><a href="#" class="pg__num">9</a></li>
+                <li class="pg__item"><a href="#" class="pg__num">10</a></li>
+                <li class="pg__item"><a href="#" class="pg__num"><img src="/assets/img/admin/bo-next.png" alt="다음"></a></li>
+                <li class="pg__item"><a href="#" class="pg__num"><img src="/assets/img/admin/bo-next-all.png" alt="마지막"></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- container-wrap end -->
+
+      <div class="alert" data-alert-id="eq">
+        <div class="alert__tit">0000000의 메시지</div>
+        <p class="alert__txt">QR CODE 재발급할 장비를 선택하세요.</p>
+        <div class="btn-wrap mt-27">
+          <button type="button" class="process-btn confirm-green" onclick="closeAlert('eq');"><span class="process-btn__txt">확인</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- wrap end -->
+<script>
+ 
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>지멘스</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <link rel="stylesheet" href=" /assets/css/jquery-ui.min.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src=" /assets/js/jquery-ui.min.js"></script>
+  <script src="../../assets/js/ui.js"></script>
+</head>
+
+
+<body>
+  <div class="container">
+
+    <!-- 스크립트 assets/js/ui.js -->
+
+    <div class="d-flex mg-50">
+      <button class="open" onclick="openModal('modal1')">모달1 열기</button>
+      <button class="open ml-50" onclick="openModal('modal2')">모달2 열기</button>
+    </div>
+    
+    <div class="sp-md" data-modal="modal1" onclick="handleModalClick(this,event)">
+      <div class="sp-md__mc">
+        <div class="sp-md__tit">모달 타이틀</div>
+        <div class="sp-md__cont">모달 내용이 들어갑니다.<br>11111111111111111</div>
+        <div class="sp-md__btn">
+          <button class="sp-md__close" onclick="handleModalClick(this, event)">닫기</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="sp-md" data-modal="modal2" onclick="handleModalClick(this, event)">
+      <div class="sp-md__mc">
+        <div class="sp-md__tit">모달 타이틀2</div>
+        <div class="sp-md__cont">모달 내용이 들어갑니다.<br>22222222222222</div>
+        <div class="sp-md__btn">
+          <button class="sp-md__close" onclick="handleModalClick(this, event)">닫기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

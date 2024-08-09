@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>지멘스</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <link rel="stylesheet" href=" /assets/css/jquery-ui.min.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src=" /assets/js/jquery-ui.min.js"></script>
+  <script src="../../assets/js/ui.js"></script>
+</head>
+
+
+<body>
+  <div class="wrap">
+
+    <!-- sample -->
+    <div class="sample">
+      <!-- reg-is-wrap -->
+      <div class="reg-is-wrap">
+        <div class="rq-tbl-wrap">
+          <p class="hot-guide">*표시는 필수입력입니다.</p>
+          <table class="rq-tbl">
+            <caption>이슈 등록 테이블</caption>
+            <colgroup>
+              <col class="rq-tbl-col01">
+              <col class="rq-tbl-col02">
+            </colgroup>
+            <tbody>
+              <!-- 병원명 -->
+              <tr>
+                <th scope="row"><label for="hospitelName" class="label">병원명</label></th>
+                <td>
+                  <input type="text" id="hospitelName" class="rq-inp inp-txt" disabled placeholder="병원명 들어갑니다" value="병원명">
+                </td>
+              </tr>
+              <!-- // 병원명 -->
+              <!-- 장비명 -->
+              <tr>
+                <th scope="row"><label for="eqName" class="label">장비명</label></th>
+                <td>
+                  <input type="text" id="eqName" class="inp-txt" disabled placeholder="장비명 들어갑니다" value="장비명">
+                </td>
+              </tr>
+              <!-- // 장비명 -->
+              <!-- 시리얼번호 -->
+              <tr>
+                <th scope="row"><label for="sirialNum" class="label">시리얼번호</label></th>
+                <td>
+                  <input type="text" id="sirialNum" class="rq-inp inp-txt" disabled placeholder="시리얼번호이 들어갑니다" value="123456789"> 
+                </td>
+              </tr>
+              <!-- // 시리얼번호 -->
+              <!-- 고객명 -->
+              <tr>
+                <th scope="row"><label for="clientName" class="label label-rq">고객명</label></th>
+                <td>
+                  <div class="rq-wrap">
+                    <input type="text" id="clientName" class="inp-txt rq-inp" placeholder="이름 들어갑니다" value="김진단">
+                    <p class="error-txt">필수 입력값입니다.</p>
+                  </div>
+                </td>
+              </tr>
+              <!-- 고객명 -->
+              <!-- 연락처 -->
+              <tr>
+                <th scope="row"><label for="phoneNum" class="label label-rq">연락처</label></th>
+                <td>
+                  <div class="p-num">
+                    <select name="" id="phoneNumber1" class="tbl-select" title="전화번호 앞자리 선택">
+                      <option value="02">02</option>
+                      <option value="010">010</option>
+                    </select>
+                    <div class="rq-wrap">
+                      <input type="text" id="phoneNumber2" class="inp-txt rq-inp" title="전화번호 뒷자리 선택" placeholder="숫자만 입력 가능" value="12345678" onkeyup="this.value=this.value.replace(/[^0-9]/g,'');">
+                      <p class="error-txt">필수 입력값입니다.</p>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <!-- // 연락처 -->
+              <!-- 이메일 선택 -->
+              <tr>
+                <th scope="row"><label for="email" class="label">이메일</label></th>
+                <td>
+                  <div class="email-box">
+                    <div class="email-row">
+                      <div class="email-col-half">
+                        <input type="text" id="email" class="inp-txt rq-inp" placeholder="이메일 ID" value="value">
+                      </div>
+                    
+                      <div class="email-col-half">
+                        <select name="" id="emailselect" title="이메일 도메인 선택" class="tbl-select rq-inp" onchange="handleEmailSelectChange(this, 'emaildomain');">
+                          <option value="">선택하세요</option>
+                          <option value="self">직접선택</option>
+                          <option value="1" selected>naver.com</option>
+                          <option value="2">kakao.com</option>
+                          <option value="3">google.com</option>
+                          <option value="4">apple.com</option>
+                          <option value="5">etc</option>
+                        </select>
+                      </div>
+                    </div>
+                    
+                    <div class="email-row">
+                      <input type="text" id="emaildomain" class="inp-txt rq-inp" title="이메일 도메인 직접입력" placeholder="이메일 도메인" value="abc@abcd.com">
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <!-- // 이메일 선택 -->
+              <!-- 이메일 필수 -->
+              <!-- <tr>
+                <th scope="row"><label for="email" class="label label-rq">이메일</label></th>
+                <td>
+                  <div class="email-box">
+                    <div class="email-row">
+                      <div class="email-col-half">
+                        <div class="rq-wrap">
+                          <input type="text" id="email" class="inp-txt rq-inp" placeholder="이메일 ID" value="value">
+                          <p class="error-txt">필수 입력값입니다.</p>
+                        </div>
+                      </div>
+                    
+                      <div class="email-col-half">
+                        <div class="rq-wrap">
+                          <select name="" id="emailselect" title="이메일 도메인 선택" class="tbl-select rq-inp" onchange="handleEmailSelectChange(this, 'emaildomain');">
+                            <option value="">선택하세요</option>
+                            <option value="self">직접선택</option>
+                            <option value="1" selected>naver.com</option>
+                            <option value="2">kakao.com</option>
+                            <option value="3">google.com</option>
+                            <option value="4">apple.com</option>
+                            <option value="5">etc</option>
+                          </select>
+                          <p class="error-txt">필수 입력값입니다.</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="email-row">
+                      <div class="rq-wrap full">
+                        <input type="text" id="emaildomain" class="inp-txt rq-inp" title="이메일 도메인 직접입력" placeholder="이메일 도메인" value="value">
+                        <p class="error-txt">필수 입력값입니다.</p>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+              </tr> -->
+              <!-- // 이메일 필수 -->
+              <!-- 이슈구분 필수 -->
+              <tr>
+                <th scope="row"><label for="division" class="label label-rq">장비/시약</label></th>
+                <td>
+                  <div class="rq-wrap">
+                    <select name="" id="division" class="tbl-select rq-inp">
+                      <option value="">선택하세요</option>
+                      <option value="1" selected>선택/장비/시약2</option>
+                      <option value="2">선택/장비/시약3</option>
+                      <option value="3">선택/장비/시약4</option>
+                      <option value="4">선택/장비/시약5</option>
+                      <option value="5">선택/장비/시약6</option>
+                    </select>
+                    <p class="error-txt">필수 입력값입니다.</p>
+                  </div>
+                </td>
+              </tr>
+              <!-- // 이슈구분 필수 -->
+              <!-- 이슈 내용 필수-->
+              <tr>
+                <th scope="row"><label for="textContent" class="label label-rq">내용</label></th>
+                <td>
+                  <div class="tbl-ta-wrap">
+                    <div class="rq-wrap full">
+                      <textarea name="" id="textContent" class="tbl-ta rq-inp">내용입니다.</textarea>
+                      <p class="error-txt">필수 입력값입니다.</p>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <!-- // 이슈 내용 필수 -->
+              <!-- 파일업로드 싱글 -->
+              <!-- <tr>
+                <th scope="row"><span class="label">파일업로드</span></th>
+                <td>
+                  <div class="single-file-upload ">
+                    <ul class="cs-inp-file-wrap">
+                      <li class="file-item">
+                        <input type="file" class="cs-inp-file" id="fileInput">
+                        <div class="rq-wrap">
+                          <input type="text" class="cs-inp-file-txt inp-txt rq-inp" id="fileInputTxt" readonly>
+                          <p class="error-txt">필수 입력값입니다.</p>
+                        </div>
+                        <button type="button" class="btn-add-file" id="addFileButton">파일 선택</button>
+                        <button type="button" class="btn-remove-file hidden" id="removeFileButton">파일 제거</button>
+                      </li>
+                    </ul>
+                  </div>
+                </td>
+              </tr> -->
+              <!-- 파일업로드 싱글 -->
+              <!-- 파일업로드 싱글 필수 -->
+              <!-- <tr>
+                <th scope="row"><label for="fileInput" class="label label-rq">파일업로드</label></th>
+                <td>
+                  <div class="single-file-upload">
+                    <ul class="cs-inp-file-wrap">
+                      <li class="file-item">
+                        <input type="file" class="cs-inp-file" id="fileInput">
+                        <input type="text" class="cs-inp-file-txt inp-txt rq-inp" title="파일명" id="fileInputTxt" readonly>
+                        <button type="button" class="btn-add-file" id="addFileButton">파일 선택</button>
+                        <button type="button" class="btn-remove-file hidden" id="removeFileButton">파일 제거</button>
+                      </li>
+                    </ul>
+                    <div class="check-wrap d-flex mt-10">
+                      <input type="checkbox" class="checkbox" id="singleFileAgree">
+                      <label for="singleFileAgree" class="checkbox-next">개인 정보 보호의 일환으로 해당 서비스 접수 시 “파일 첨부”에 환자 의료 정보(환자 성명, 환자 번호, 주민등록번호 등의 개인 식별 정보)가 포함되지 않았음을 확인합니다. 만약 본 서비스 이슈 접수 내용에 해당 정보가 포함되어 있다면 반드시 파일 삭제나 내용 삭제 후 접수를 부탁드립니다.</label>
+                    </div>
+                    <p class="error-txt single-file">체크해 주세요</p>
+                  </div>
+                </td>
+              </tr> -->
+              <!-- 파일업로드 싱글 필수 -->
+              <!-- 파일업로드 멀티 -->
+              <tr>
+                <th scope="row"><label for="addMultiFileButton" class="label">파일업로드 멀티</label></th>
+                <td>
+                  <div class="multi-file-upload">
+                    <input type="file" id="inpMultiFile" style="display:none;" multiple>
+                    <ul class="cs-inp-file-wrap"></ul>
+                    <div class="add-row">
+                      <button type="button" class="btn-add-file" id="addMultiFileButton">파일 선택</button>
+                    </div>
+                    <p class="g-txt">최대 업로드 가능 파일은 <span class="cnt"></span>개 입니다.</p> 
+                    <p class="g-txt">파일당 최대 업로드 용량은 <span class="max"></span>MB 입니다.</p> 
+                    <p class="g-txt">확장자가 <span class="file-type"></span>인 파일은 업로드 불가</p> 
+                    <!-- 필수인 경우에만 -->
+                    <!-- <p class="error-txt multi-file">필수 입력값입니다.</p> -->
+
+                    <!-- <div class="check-wrap d-flex mt-10">
+                      <input type="checkbox" class="checkbox" id="multiFileAgree">
+                      <label for="multiFileAgree" class="checkbox-next">개인 정보 보호의 일환으로 해당 서비스 접수 시 “파일 첨부”에 환자 의료 정보(환자 성명, 환자 번호, 주민등록번호 등의 개인 식별 정보)가 포함되지 않았음을 확인합니다. 만약 본 서비스 이슈 접수 내용에 해당 정보가 포함되어 있다면 반드시 파일 삭제나 내용 삭제 후 접수를 부탁드립니다.</label>
+                    </div>
+                    <p class="error-txt chk">체크해 주세요</p> -->
+                    <!-- 필수인 경우에만 -->
+                  </div>
+                </td>
+              </tr>
+              <!-- // 파일업로드 멀티 -->
+            </tbody>
+          </table>
+          <!-- 개인 정보 처리 방침 동의 -->
+          <div class="agree-box-wrap mg-10">
+            <div class="agree-box">
+              <p class="ab-txt">
+                개인 정보 처리 방침에 대한 개인정보 제공 동의
+                <button class="ab-view" onclick="openModal('agreebox')">보기</button>
+              </p>
+
+              <div class="check-wrap d-flex">
+                <input type="checkbox" class="check-sample" checked id="check02">
+                <label for="check02">(필수)동의합니다.</label>
+              </div>
+            </div>
+          </div>
+          <!-- // 개인 정보 처리 방침 동의 -->
+          <!-- 버튼 영역 -->
+          <div class="reg-is-btn">
+            <!-- 버튼 입니다. 여러개 있어도 무조건 가운데 정렬 -->
+            <!-- <button type="button" class="btn-is type1">버튼1</button>
+            <button type="button" class="btn-is type2">버튼2</button> -->
+            <!-- 버튼 입니다. -->
+            <button type="button" class="btn-is confirm" onclick="issueSubmit()">등록</button>
+          </div>
+          <!-- 버튼 영역 -->
+        </div>
+      </div>
+      <!-- // reg-is-wrap -->
+    </div>
+    <!-- // sample -->
+     
+    <!-- 개인정보 처리 방침 모달 -->
+    <div class="sp-md" data-modal="agreebox" onclick="handleModalClick(this, event)">
+      <div class="sp-md__mc">
+        <div class="sp-md__tit">개인정보 제공 동의</div>
+        <div class="sp-md__cont">
+          개인정보 제공 동의에 대한 내용이 어쩌구 저쩌구 들어갑니다.
+        </div>
+        <div class="sp-md__btn">
+          <button class="sp-md__close" onclick="handleModalClick(this, event)">확인</button>
+        </div>
+      </div>
+    </div>
+    <!-- // 개인정보 처리 방침 모달 -->
+
+    <!-- 접수 완료 모달 -->
+    <!-- <div class="sp-md" data-modal="complete" onclick="handleModalClick(this, event)">
+      <div class="sp-md__mc">
+        <div class="sp-md__tit">접수 완료</div>
+        <div class="sp-md__cont"></div>
+        <div class="sp-md__btn">
+          <button class="sp-md__close" onclick="handleModalClick(this, event)">확인</button>
+        </div>
+      </div>
+    </div> -->
+    <!-- // 접수 완료 모달 -->
+  </div>
+  <!-- // wrap -->
+
+<script>
+
+  // 제출 완료 성공 실패 메세지
+  // const msgComplete = {
+  //   success: '서비스 담당자가 배정 완료되면 어쩌구 저쩌구',
+  //   fail: '접수 실패'
+  // }
+  // 업로드를 허용 확장자 명
+  const exFileName = ['pdf', 'xlsx', 'jpg', 'png']
+ 
+  // 이메일 직접 입력
+  function handleEmailSelectChange(select, emaildomain) {
+    const emailDomainInput = document.getElementById(emaildomain);
+    const selectedValue = select.value;
+
+    if (selectedValue === 'self') {
+      emailDomainInput.removeAttribute('readonly');
+    } else {
+      emailDomainInput.setAttribute('readonly', 'true');
+      emailDomainInput.classList.remove('is-empty');
+    }
+  }
+
+  // 싱글 파일 업로드 제거 기능 구현
+  class SingleFileUpload {
+    constructor(selector) {
+      this.containers = document.querySelectorAll(selector);
+      this.containers.forEach(container => this.init(container));
+    }
+
+    init(container) {
+      this.fileInput = container.querySelector(".cs-inp-file");
+      this.fileInputTxt = container.querySelector(".cs-inp-file-txt");
+      this.addFileButton = container.querySelector(".btn-add-file");
+      this.removeFileButton = container.querySelector(".btn-remove-file");
+      this.singleFileAgree = container.querySelector("#singleFileAgree");
+      this.eTxtSingle = container.querySelector(".error-txt.single-file");
+
+      this.addFileButton.addEventListener("click", () => this.fileInput.click());
+
+      this.fileInput.addEventListener("change", () => this.updateFileName(container));
+
+      this.removeFileButton.addEventListener("click", () => this.removeFile(container));
+
+      if (this.singleFileAgree) {
+        this.singleFileAgree.addEventListener("change", (event) => this.handleAgreeChange(event));
+      }
+    }
+
+    updateFileName(container) {
+      if (this.fileInput.files.length > 0) {
+        this.fileInputTxt.value = this.fileInput.files[0].name;
+        this.fileInputTxt.classList.remove('is-empty');
+        this.removeFileButton.classList.remove("hidden");
+        this.addFileButton.style.display = "none"; // 파일 선택 버튼 숨기기
+      } else {
+        this.fileInputTxt.value = "";
+        this.removeFileButton.classList.add("hidden");
+        this.addFileButton.style.display = "inline-block"; // 파일 선택 버튼 보이기
+      }
+    }
+
+    removeFile(container) {
+      // 기존 파일 입력 요소 제거
+      this.fileInput.remove();
+      
+      // 새로운 파일 입력 요소 생성
+      const newFileInput = document.createElement('input');
+      newFileInput.type = 'file';
+      newFileInput.classList.add('cs-inp-file');
+      newFileInput.style.display = 'none'; // 숨김 상태 유지
+      newFileInput.addEventListener('change', () => this.updateFileName(container));
+
+      // 새로운 파일 입력 요소를 container에 추가
+      container.querySelector('.file-item').appendChild(newFileInput);
+
+      // 새로운 파일 입력 요소로 참조 업데이트
+      this.fileInput = newFileInput;
+
+      // 텍스트 입력 초기화 및 제거 버튼 숨기기
+      this.fileInputTxt.value = "";
+      this.removeFileButton.classList.add("hidden");
+      this.addFileButton.style.display = "inline-block"; // 파일 선택 버튼 보이기
+    }
+
+    handleAgreeChange(event) {
+      const checkbox = event.target;
+      if (checkbox.checked) {
+        console.log('동의함');
+        // 동의함 상태에 따른 동작을 여기에 추가
+        this.eTxtSingle.classList.remove('visible');
+      } else {
+        console.log('동의하지 않음');
+        // 동의하지 않음 상태에 따른 동작을 여기에 추가
+        this.eTxtSingle.classList.add('visible');
+      }
+    }
+  }
+  
+  // 멀티 파일 업로드 제거 기능 구현
+  class MultiFileUpload {
+    constructor(selector, maxFiles, fileExtension, maxFileSizeMB) {
+      this.container = document.querySelector(selector);
+      this.maxFiles = maxFiles || 5; // 기본 최대 파일 수를 5개로 설정
+      this.currentFileCount = 0;
+      this.fileList = []; // 선택된 파일을 저장하는 배열
+      this.excludedExtensions = fileExtension.map(ext => ext.toLowerCase()); // 제외할 확장자 목록을 소문자로 변환하여 저장
+      this.maxFileSizeMB = maxFileSizeMB; // 파일당 최대 파일 사이즈
+
+      this.init();
+    }
+
+    init() {
+      this.fileWrap = this.container.querySelector(".cs-inp-file-wrap");
+      this.fileInput = this.container.querySelector("#inpMultiFile");
+      this.addFileButton = this.container.querySelector("#addMultiFileButton");
+      this.maxTxt = this.container.querySelector('.g-txt .cnt');
+      this.maxTxt2 = this.container.querySelector('.g-txt .max');
+      this.fileTypeTxt = this.container.querySelector('.g-txt .file-type');
+      this.eTxtMulti = this.container.querySelector('.error-txt.multi-file');
+      this.eTxtchk = this.container.querySelector('.error-txt.chk');
+      this.multiFileAgree = this.container.querySelector("#multiFileAgree");
+
+      this.maxTxt.textContent = this.maxFiles;
+      this.maxTxt2.textContent = this.maxFileSizeMB;
+      this.fileTypeTxt.textContent = this.excludedExtensions;
+      console.log('----------\n멀티 파일 업로드\n업로드 제외 확장자명:',this.excludedExtensions, '\n-----------');
+
+      this.addFileButton.addEventListener("click", () => this.fileInput.click());
+      this.fileInput.addEventListener('change', () => this.handleFileSelect());
+
+      if (this.multiFileAgree) {
+        this.multiFileAgree.addEventListener("change", (event) => this.handleAgreeChange(event));
+      }
+    }
+
+    handleFileSelect() {
+      const newFiles = Array.from(this.fileInput.files);
+
+      // 파일 갯수 초과 메세지 삭제
+      const errorText = document.querySelector('.error-txt.multi-file');
+      if (errorText) {
+        errorText.remove();
+      }
+
+      let invalidFiles = false;
+
+      newFiles.forEach(file => {
+        const fileExtension = file.name.split('.').pop().toLowerCase();
+
+        if (file.size > this.maxFileSizeMB * 1024 * 1024) { // 파일 용량이 최대 허용 용량을 초과하는 경우
+          invalidFiles = true;
+          this.container.insertAdjacentHTML('beforeend', `<p class="error-txt multi-file">파일 ${file.name}의 용량이 ${this.maxFileSizeMB}MB를 초과합니다.</p>`);
+        } else if (this.excludedExtensions.includes(fileExtension)) { // 제외할 확장자인 경우
+          invalidFiles = true;
+          this.container.insertAdjacentHTML('beforeend', `<p class="error-txt multi-file">파일 ${file.name}은 업로드할 수 없습니다.</p>`);
+        } else if (this.fileList.length + 1 > this.maxFiles) { // 파일 최대 갯수를 초과하는 경우
+          this.container.insertAdjacentHTML('beforeend', `<p class="error-txt multi-file">파일이 ${this.maxFiles}개를 초과했습니다.</p>`);
+          this.fileInput.value = ''; // 파일 입력 초기화
+          return;
+        } else {
+          this.fileList.push(file);
+          this.addFileItem(file);
+        }
+      });
+
+      if (invalidFiles) {
+        this.fileInput.value = ''; // 유효하지 않은 파일이 있을 경우 파일 입력 초기화
+      } else {
+        this.updateFileInput();
+      }
+
+      if (this.fileList.length >= this.maxFiles) {
+        this.addFileButton.style.display = "none";
+      }
+    }
+    
+    addFileItem(file) {
+      const fileItem = document.createElement('li');
+      fileItem.classList.add('file-item');
+
+      const fileInputTxt = document.createElement('input');
+      fileInputTxt.type = 'text';
+      fileInputTxt.classList.add('cs-inp-file-txt', 'inp-txt');
+      fileInputTxt.value = file.name;
+      fileInputTxt.readOnly = true;
+
+      const removeFileButton = document.createElement('button');
+      removeFileButton.type = 'button';
+      removeFileButton.classList.add('btn-remove-file');
+      removeFileButton.textContent = '파일 제거';
+      removeFileButton.addEventListener('click', () => this.removeFileItem(file));
+
+      fileItem.appendChild(fileInputTxt);
+      fileItem.appendChild(removeFileButton);
+
+      this.fileWrap.appendChild(fileItem);
+      // this.eTxtMulti.classList.remove('visible');
+    }
+
+    removeFileItem(file) {
+      this.fileList = this.fileList.filter(f => f !== file);
+      this.updateFileListDisplay();
+      this.updateFileInput();
+
+      if (this.fileList.length < this.maxFiles) {
+        this.addFileButton.style.display = "inline-block"; // 파일 추가 버튼 보이기
+      }
+    }
+
+    updateFileListDisplay() {
+      this.fileWrap.innerHTML = ''; // 기존 파일 목록 초기화
+      this.fileList.forEach(file => this.addFileItem(file));
+    }
+
+    updateFileInput() {
+      const dataTransfer = new DataTransfer();
+      this.fileList.forEach(file => dataTransfer.items.add(file));
+      this.fileInput.files = dataTransfer.files;
+
+      console.log(this.fileInput.files); // 콘솔에 파일 목록 출력
+    }
+
+    // 필수 동의 체크박스가 필요한 경우에만 구현
+    handleAgreeChange(event) {
+      // const checkbox = event.target;
+      // if (checkbox.checked) {
+      //   this.eTxtchk.classList.remove('visible');
+      // } else {
+      //   this.eTxtchk.classList.add('visible');
+      // }
+    }
+  }
+
+  // 제출 시 필수 입력값을 체크하는 함수
+  function requiredCheck(event) {
+    event.preventDefault(); // 필수 입력값이 비어 있는 경우 폼 제출을 막음
+
+    const inputFields = document.querySelectorAll('.rq-inp');
+    let allValid = true;
+    let emailSelectValid = false;
+
+    // emailselect의 값을 먼저 체크
+    inputFields.forEach(function(inputField) {
+      if (inputField.id === 'emailselect') {
+        if (inputField.value === '' || inputField.value === 'self') {
+          inputField.classList.add('is-empty');
+          allValid = false;
+          console.log('이메일 셀렉트 값이 없음');
+        } else {
+          inputField.classList.remove('is-empty');
+          emailSelectValid = true;
+          console.log('이메일 셀렉트 값 있음');
+        }
+      }
+    });
+
+    // 나머지 입력 필드들을 체크, emaildomain은 제외
+    inputFields.forEach(function(inputField) {
+      if (inputField.id !== 'emaildomain' || !emailSelectValid) {
+        const errorText = inputField.nextElementSibling;
+
+        if (inputField.value.trim() === '') {
+          inputField.classList.add('is-empty');
+          allValid = false;
+          console.log('필수 입력 누락');
+        } else {
+          inputField.classList.remove('is-empty');
+          console.log('필수 입력 완료');
+        }
+      }
+    });
+
+    // 싱글 파일 업로드 필수일 경우에 동의 체크
+    const requiredSingleFileCheckbox = document.getElementById('singleFileAgree');
+    if (requiredSingleFileCheckbox) {
+      const eTxtSingleFile = document.querySelector('.error-txt.single-file');
+      if (!requiredSingleFileCheckbox.checked) {
+          allValid = false;
+          console.log('싱글파일 필수 동의 누락');
+          eTxtSingleFile.classList.add('visible');
+      } else {
+          console.log('싱글파일 필수 동의 완료');
+      }
+    }
+
+    // 멀티 파일 업로드 필수일 경우에 동의 체크
+    // const requiredmultiFileCheckbox = document.getElementById('multiFileAgree');
+    // const eTxtMultiFile = document.querySelector('.multi-file-upload .error-txt.chk');
+    // if (!requiredmultiFileCheckbox.checked) {
+    //     allValid = false;
+    //     console.log('멀티파일 필수 동의 누락');
+    //     eTxtMultiFile.classList.add('visible');
+    // } else {
+    //     console.log('멀티파일 필수 동의 완료');
+    // }
+
+    // 멀티 파일 업로드 필수일 경우
+    // const fileUploadContainers = document.querySelectorAll('.multi-file-upload.required');
+    // if (fileUploadContainers.length > 0) {
+    //   fileUploadContainers.forEach(function(container) {
+    //     const fileItems = container.querySelectorAll('.file-item');
+    //     const errorText = container.querySelector('.error-txt');
+
+    //     if (fileItems.length === 0) {
+    //       errorText.classList.add('visible');
+    //       allValid = false;
+    //       console.log('파일 업로드 필수 누락');
+    //     } else {
+    //       errorText.classList.remove('visible');
+    //       console.log('파일 업로드 완료');
+    //     }
+    //   });    
+    // }
+
+    // 필수 동의 체크박스 체크 아이디 값에 따라 다름
+    const requiredCheckbox = document.getElementById('check02');
+    if (!requiredCheckbox.checked) {
+      allValid = false;
+      requiredCheckbox.classList.add('is-empty');
+      console.log('개인 정보 처리 방침 체크박스 필수 동의 누락');
+    } else {
+      requiredCheckbox.classList.remove('is-empty');
+      console.log('개인 정보 처리 방침 체크박스 필수 동의 완료');
+    }
+
+    // 이메일 형식 체크
+    const emailDomainValue = document.querySelector('#emaildomain').value;
+    console.log('이메일 도메인 값 :', emailDomainValue);
+    if (!isEmail(emailDomainValue)) {
+      allValid = false;
+      console.log('이메일 형식 false');
+    }
+
+    // 전화번호 유효성 검사
+    if (!checkPhoneNumber()) {
+      allValid = false;
+    }
+
+    // 모든 필수 입력값이 유효한 경우 폼을 제출
+    if (allValid) {
+      console.log('제출');
+      // location.href = 'result.html';
+    } else {
+      console.log('필수입력 재확인');
+    }
+  }
+
+  // 실시간 필수 체크
+  function realTimeCheckRequired() {
+    const inputs = document.querySelectorAll('.rq-inp');
+    inputs.forEach(input => {
+      input.addEventListener('input', function () {
+        if (input.value.trim() !== '') {
+          input.classList.remove('is-empty');
+        } else {
+          input.classList.add('is-empty');
+        }
+      });
+    });
+  }
+  
+  // 등록
+  function issueSubmit() {
+    console.log('등록');
+
+    // 필수 입력 체크
+    requiredCheck(event);
+  }
+  
+  // 문서 로드 후 실행
+  document.addEventListener('DOMContentLoaded', () => {
+    // 싱글 파일 업로드
+    new SingleFileUpload('.single-file-upload');
+
+    // 멀티 파일 업로드 1.선택자, 2.최대파일갯수, 3.제외할 파일확장자, 4.최대허용용량 
+    new MultiFileUpload('.multi-file-upload', 5, exFileName, 1);
+
+    // 필수 입력 실시간 체크
+    realTimeCheckRequired();
+  });
+
+  // 전화번호 유효성 검사
+  function checkPhoneNumber () {
+    let phoneNumber1Value = document.getElementById("phoneNumber1").value;
+    let phoneNumber2Value = document.getElementById("phoneNumber2").value;
+
+    let reg1Phone= /^\d{2,3}$/;
+    let reg2Phone= /^\d{7,8}$/;
+
+    if (reg1Phone.test(phoneNumber1Value) != true || reg2Phone.test(phoneNumber2Value) != true) {
+      console.log("휴대전화 번호가 유효하지 않습니다.");
+      return false;
+    } 
+    return true;
+  }
+
+  //이메일 형식 체크
+  function isEmail(asValue) {
+
+    // 이메일 형식에 맞게 입력했는지 체크
+    let regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+
+    return regExp.test(asValue); // 형식에 맞는 경우에만 true 리턴
+
+  }  
+
+</script>
+</body>
+</html>

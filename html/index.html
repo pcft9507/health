@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="https://kit.fontawesome.com/8866b61e13.js" crossorigin="anonymous"></script>
+  <title>지멘스 IA</title>
+  <style>
+    * {margin: 0; padding: 0;}
+    .wrap {padding: 50px;}
+    a {color: #000;}
+    .tbl-ia {width: 100%; border-collapse: collapse; margin-top: 10px;}
+    .tbl-ia .col01 {width: 100px;}
+    .tbl-ia .col02 {width: 150px;}
+    .tbl-ia .col03 {width: 250px;}
+    .tbl-ia .col04 {width: auto;}
+    .tbl-ia thead th {height: 30px; font-size: 14px; background: #fafafa; border: 1px solid #ccc;}
+    .tbl-ia tbody td {height: 30px; padding: 0 10px; font-size: 12px; border: 1px solid #ccc;}
+    .tbl-ia tbody td a {display: inline-block; max-width: 100%; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;}
+    .tac {text-align: center;}
+    .before-tbl {display: flex; justify-content: flex-end;}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="guide__header">
+      <h1 class="guide__header--logo">지멘스 IA</h1>
+    </header>
+    
+    <div class="container">
+      <div class="real-page">
+        <h2>작업리스트</h2>
+        <div class="d-flex before-tbl">
+          <div class="sch-box">
+            <select name="" id="" class="sch-box__select">
+              <option value="제목">제목</option>
+              <option value="작성자">작성자</option>
+              <option value="분류3">분류3</option>
+              <option value="분류4">분류4</option>
+            </select>
+        
+            <input type="text" class="sch-box__input">
+        
+            <button type="button" class="sch-box__submit">검색</button>
+          </div>
+        </div>
+        
+        <table class="tbl-ia">
+          <colgroup>
+            <col class="col01">
+            <col class="col02">
+            <col class="col03">
+            <col class="col04">
+          </colgroup>
+          <thead>
+            <tr>
+              <th><input type="checkbox" id="checkAll" onchange="toggleCheckboxes('checkAll', 'all-check-sub');">No.</th>
+              <th>name</th>
+              <th>path</th>
+              <th>description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="tac"><input type="checkbox" class="all-check-sub" onchange="toggleCheckboxes('checkAll', 'all-check-sub');">1</td>
+              <td>QR 이슈등록</td>
+              <td><a href="/html/reg_issue.html" target="_blank">/html/reg_issue.html</a></td>
+              <td>QR 이슈등록</td>
+            </tr>
+            <tr>
+              <td class="tac"><input type="checkbox" class="all-check-sub" onchange="toggleCheckboxes('checkAll', 'all-check-sub');">2</td>
+              <td>안내팝업1</td>
+              <td><a href="/html/colplete_pop1.html" target="_blank">/html/olplete_pop1.html</a></td>
+              <td>안내팝업1</td>
+            </tr>
+            <tr>
+              <td class="tac"><input type="checkbox" class="all-check-sub" onchange="toggleCheckboxes('checkAll', 'all-check-sub');">2</td>
+              <td>안내팝업2</td>
+              <td><a href="/html/colplete_pop2.html" target="_blank">/html/olplete_pop2.html</a></td>
+              <td>안내팝업2</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <div id="pagination-div" class="mt-20">
+          <ul class="paging">
+            <li class="paging__prev_all disabled"><a href="#" class="page-link">&lt;&lt;</a></li>
+            <li class="paging__prev disabled"><a href="#" class="page-link">&lt;</a></li>
+            <li class="paging__num active"><a href="#" class="page-link">1</a></li>
+            <li class="paging__num"><a href="#" class="page-link">2</a></li>
+            <li class="paging__num"><a href="#" class="page-link">3</a></li>
+            <li class="paging__num"><a href="#" class="page-link">4</a></li>
+            <li class="paging__num"><a href="#" class="page-link">5</a></li>
+            <li class="paging__num"><a href="#" class="page-link">6</a></li>
+            <li class="paging__num"><a href="#" class="page-link">7</a></li>
+            <li class="paging__num"><a href="#" class="page-link">8</a></li>
+            <li class="paging__num"><a href="#" class="page-link">9</a></li>
+            <li class="paging__next"><a href="#" class="page-link">&gt;</a></li>
+            <li class="paging__next_all"><a href="#" class="page-link">&gt;&gt;</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sample-page">
+        <h2>샘플리스트</h2>
+        <div class="d-flex before-tbl">
+          <div class="sch-box">
+            <select name="" id="" class="sch-box__select">
+              <option value="제목">제목</option>
+              <option value="작성자">작성자</option>
+              <option value="분류3">분류3</option>
+              <option value="분류4">분류4</option>
+            </select>
+        
+            <input type="text" class="sch-box__input">
+        
+            <button type="button" class="sch-box__submit">검색</button>
+          </div>
+        </div>
+        
+        <table class="tbl-ia">
+          <colgroup>
+            <col class="col01">
+            <col class="col02">
+            <col class="col03">
+            <col class="col04">
+          </colgroup>
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>name</th>
+              <th>path</th>
+              <th>description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="tac">1</td>
+              <td>메인페이지</td>
+              <td><a href="/html/main/main.html" target="_blank">/html/main/main.html</a></td>
+              <td>설명 넣어주세요</td>
+            </tr>
+            <tr>
+              <td class="tac">2</td>
+              <td>관리자이슈등록샘플</td>
+              <td><a href="/html/sample/reg_issue.html" target="_blank">/html/sample/reg_issue.html</a></td>
+              <td>관리자이슈등록샘플입니다.</td>
+            </tr>
+            <tr>
+              <td class="tac">3</td>
+              <td>레이어팝업 샘플</td>
+              <td><a href="/html/sample/layerPop.html" target="_blank">/html/sample/layerPop.html</a></td>
+              <td>레이어팝업 샘플입니다.</td>
+            </tr>
+            <tr>
+              <td class="tac">4</td>
+              <td>접수완료 이메일</td>
+              <td><a href="/html/sample/email_complete.html" target="_blank">/html/sample/email_complete.html</a></td>
+              <td>접수완료 이메일</td>
+            </tr>
+            <tr>
+              <td class="tac">5</td>
+              <td>전송결과</td>
+              <td><a href="/html/sample/result.html" target="_blank">/html/sample/result.html</a></td>
+              <td>접송결과</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <div id="pagination-div" class="mt-20">
+          <ul class="paging">
+            <li class="paging__prev_all disabled"><a href="#" class="page-link">&lt;&lt;</a></li>
+            <li class="paging__prev disabled"><a href="#" class="page-link">&lt;</a></li>
+            <li class="paging__num active"><a href="#" class="page-link">1</a></li>
+            <li class="paging__num"><a href="#" class="page-link">2</a></li>
+            <li class="paging__num"><a href="#" class="page-link">3</a></li>
+            <li class="paging__num"><a href="#" class="page-link">4</a></li>
+            <li class="paging__num"><a href="#" class="page-link">5</a></li>
+            <li class="paging__num"><a href="#" class="page-link">6</a></li>
+            <li class="paging__num"><a href="#" class="page-link">7</a></li>
+            <li class="paging__num"><a href="#" class="page-link">8</a></li>
+            <li class="paging__num"><a href="#" class="page-link">9</a></li>
+            <li class="paging__next"><a href="#" class="page-link">&gt;</a></li>
+            <li class="paging__next_all"><a href="#" class="page-link">&gt;&gt;</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 전체 체크
+    function toggleCheckboxes(masterCheckboxId, subCheckboxClass) {
+      const masterCheckbox = document.getElementById(masterCheckboxId);
+      const subCheckboxes = document.querySelectorAll('.' + subCheckboxClass);
+
+      if (event.target === masterCheckbox) {
+        // 마스터 체크박스를 클릭하면 모든 하위 체크박스를 선택/해제합니다.
+        subCheckboxes.forEach(checkbox => {
+            checkbox.checked = masterCheckbox.checked;
+        });
+      } else {
+        // 하위 체크박스를 클릭하면 마스터 체크박스가 업데이트됩니다.
+        const allChecked = Array.from(subCheckboxes).every(checkbox => checkbox.checked);
+        masterCheckbox.checked = allChecked;
+      }
+    }
+  </script>
+</body>
+</html>

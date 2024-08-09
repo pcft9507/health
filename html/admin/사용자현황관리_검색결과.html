@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>지멘스</title>
+  <link rel="stylesheet" href="/assets/css/admin_style.css" />
+  <link rel="stylesheet" href=" /assets/css/jquery-ui.min.css">
+  <script src=" /assets/js/jquery-3.7.1.min.js"></script>
+  <script src=" /assets/js/jquery-ui.min.js"></script>  
+  <script src="/assets/js/ui.js"></script>
+</head>
+
+
+<body>
+  <!-- wrap -->
+  <div class="wrap">
+    <div class="wrap-flex">
+      <!-- header -->
+      <header class="header">
+  <div class="logo-wrap">
+    <h1 class="logo"><a href="#"><img src="/assets/img/admin/logo@2x.png" alt="dx service issue handling platform"></a></h1>
+  </div>
+
+  <div class="header-container">
+    <div class="profile-box">
+      <div class="profile-box__img-box"><img src="/assets/img/admin/profile@2x.png" alt="회원 사진" class="profile-box__img"></div>
+    
+      <p class="profile-box__welcome-txt">안녕하세요!<br>홍길동님</p>
+    </div>
+    
+    <div class="nav-container">
+      <nav class="gnb">
+        <ul class="gnb__list">
+          <li class="gnb__category"><span class="gnb__category-txt">사용자 관리</span>
+            <ul class="gnb__sub">
+              <li class="gnb__sub-item"><a href="#" class="gnb__sub-btn">사용자 현황 관리</a></li>
+            </ul>
+          </li>
+          <li class="gnb__category"><span class="gnb__category-txt">데이터 관리</span>
+            <ul class="gnb__sub">
+              <li class="gnb__sub-item"><a href="#" class="gnb__sub-btn">병원 등록 현황</a></li>
+              <li class="gnb__sub-item"><a href="#" class="gnb__sub-btn">공휴일 등록</a></li>
+              <li class="gnb__sub-item"><a href="#" class="gnb__sub-btn">PUSH 이력 관리</a></li>
+              <li class="gnb__sub-item"><a href="#" class="gnb__sub-btn">메일 이력 관리</a></li>
+              <li class="gnb__sub-item"><a href="#" class="gnb__sub-btn">접속기록</a></li>
+            </ul>
+          </li>
+          <li class="gnb__category"><span class="gnb__category-txt">QR 코드 관리</span>
+            <ul class="gnb__sub">
+              <li class="gnb__sub-item"><a href="#" class="gnb__sub-btn">QR 코드 발급 현황</a></li>
+              <li class="gnb__sub-item"><a href="#" class="gnb__sub-btn">QR 코드 발급 이력</a></li>
+              <li class="gnb__sub-item"><a href="#" class="gnb__sub-btn">QR 코드 출력</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    
+    <div class="header-foot">
+      <button class="logout" title="로그아웃">
+        <span class="txt">Logout</span>
+      </button>
+
+      <span class="connecting-time">접속시간  2024.07.03 14:21</span>
+    </div>
+  </div>
+</header>
+      <!-- header end -->
+      
+      <!-- container-wrap -->
+      <div class="container-wrap">
+        <div class="container">
+          <div class="cont-head">
+            <div class="ch-h">
+              <div class="ch-h__bc">
+                <span class="ch-h__target">홈</span>
+                <span class="ch-h__target">사용자 관리</span>
+                <span class="ch-h__target on">사용자 현황 관리</span>
+              </div>
+        
+              <div class="ch-h__logo"><img src="/assets/img/Siemens_logo@2x.png" alt="siemens healthineers"></div>
+            </div>
+        
+            <h2 class="adm-page-title mt-20">사용자 현황 관리</h2>
+          </div>
+        
+          <div class="content mt-20">
+            <div class="sch-box">
+                <div class="sch-box__sub">
+                  <div class="radio-group">
+                    <div class="radio">
+                      <input type="radio" id="user1" name="user" class="radio__input">
+                      <label for="user1" class="radio__label">전체</label>
+                    </div>
+                  
+                    <div class="radio">
+                      <input type="radio" id="user2" name="user" class="radio__input">
+                      <label for="user2" class="radio__label">이름</label>
+                    </div>
+                  
+                    <div class="radio">
+                      <input type="radio" id="user3" name="user" checked class="radio__input">
+                      <label for="user3" class="radio__label">권한그룹</label>
+                    </div>
+                  
+                    <div class="radio">
+                      <input type="radio" id="user4" name="user" class="radio__input">
+                      <label for="user4" class="radio__label">이메일</label>
+                    </div>
+                  </div>
+                  
+                  <input type="text" class="sch-box__input input-txt ml-20" title="검색어 입력">
+                  
+                  <div class="select sch-box__select ml-30">
+                    <label for="condition" class="select__label">상태</label>
+                  
+                    <select name="" id="condition" class="select__select">
+                      <option value="">선택1</option>
+                      <option value="">선택2</option>
+                      <option value="">선택3</option>
+                      <option value="">선택4</option>
+                      <option value="">선택5</option>
+                    </select>
+                  </div>
+                </div>
+        
+              <button type="button" class="sch-box__btn-sch btn-default confirm">검색</button>
+            </div>
+        
+            <div class="table mt-20">
+              <div class="tbl-row-cnt">
+                <span class="trc-txt">총 항목 3개</span>
+              </div>
+
+              <table class="tbl-list tbl-user-list">
+                <caption>사용자 목록 게시판</caption>
+        
+                <colgroup>
+                  <col class="tul-col01">
+                  <col class="tul-col02">
+                  <col class="tul-col03">
+                  <col class="tul-col04">
+                  <col class="tul-col05">
+                  <col class="tul-col06">
+                  <col class="tul-col07">
+                </colgroup>
+        
+                <thead>
+                  <tr>
+                    <th>NO</th>
+                    <th>권한그룹</th>
+                    <th>담당자 이름</th>
+                    <th>부서명</th>
+                    <th>이메일</th>
+                    <th>update</th>
+                    <th>상태</th>
+                  </tr>
+                </thead>
+        
+                <tbody>
+                  <tr class="pointer-cursor" onclick="openLpop('lpop1');">
+                    <td>1</td>
+                    <td><span class="position">관리자</span></td>
+                    <td><span class="name">홍길동</span></td>
+                    <td><span class="position">M&S</span></td>
+                    <td><span class="email">admin.Park@siemens-Healthineers.com</span></td>
+                    <td><span class="time">2024-06-21 13:00:05</span></td>
+                    <td><span class="status chip chip--active chip--bordered" data-status=true>활성화</span></td>
+                  </tr>
+                  <tr>
+                    <td colspan="7">
+                      <div class="lpop" data-popup-id="lpop1">
+                        <div class="lpop__container">
+                          <div class="lpop__head dragHandle">
+                            <span class="lpop__tit">사용자 목록 상세</span>
+                          </div>
+                          <div class="lpop__content">
+                            <div id="userName" class="lpop__cont-tit">홍길동</div>
+                      
+                            <table class="lpop__user-tbl">
+                              <caption>사용자 상세</caption>
+                              <colgroup>
+                                <col class="col01">
+                                <col class="col02">
+                              </colgroup>
+                      
+                              <tbody>
+                                <tr>
+                                  <th scope="row"><span class="label required">권한그룹</span></th>
+                                  <td>
+                                    <div class="select w-f">
+                                      <select name="" id="authority" class="select__select w-f">
+                                        <option value="" selected>관리자</option>
+                                        <option value="">CS오퍼레이터</option>
+                                      </select>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <th scope="row"><span class="label">직책</span></th>
+                                  <td><input type="text" id="position" class="input-txt w-f" title="직책을 넣어주세요" value="팀장"></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row"><span class="label">연락처</span></th>
+                                  <td><input type="text" id="phoneNum" class="input-txt w-f" readonly value="010-1234-5678"></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row"><span class="label">부서명</span></th>
+                                  <td>
+                                    <div class="select w-f">
+                                      <select name="" id="authority" class="select__select w-f">
+                                        <option value="" selected>M&S</option>
+                                        <option value="">CS팀</option>
+                                      </select>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <th scope="row"><span class="label">이메일</span></th>
+                                  <td><input type="text" id="email" class="input-txt w-f" readonly value="admin.Park@siemens-Healthineers.com"></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row"><span class="label">상태</span></th>
+                                  <td>
+                                    <div class="act-tg">
+                                      <label class="act-tg__switch">
+                                        <input type="checkbox" id="status" class="act-tg__input">
+                                        <span class="act-tg__slider round">
+                                          <i class="act-tg__off">OFF</i>
+                                          <i class="act-tg__on">ON</i>
+                                        </span>
+                                      </label>
+                                      <span class="act-tg__txt">(비활성화)</span>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <th scope="row"><span class="label">설명</span></th>
+                                  <td><input type="text" id="desc" class="input-txt w-f"></td>
+                                </tr>
+                              </tbody>
+                            </table>
+                      
+                            <div class="btn-wrap mt-20">
+                              <button type="button" class="process-btn cancel" onclick="closeLpop('lpop1');"><span class="process-btn__txt">취소</span></button>
+                              <button type="button" class="process-btn confirm"><span class="process-btn__txt">저장</span></button>
+                            </div>
+                      
+                            <button type="button" class="btn-close" onclick="closeLpop('lpop1');" title="사용자 목록 상세 닫기"><img src="/assets/img/admin/close-layer-pop.png"></button>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="pointer-cursor">
+                    <td>3</td>
+                    <td><span class="position">관리자</span></td>
+                    <td><span class="name">박찬식</span></td>
+                    <td><span class="position">CS팀</span></td>
+                    <td><span class="email">CC.SSS@siemens-Healthineers.com</span></td>
+                    <td>2024-06-21 13:00:05</td>
+                    <td><span class="status chip chip--active chip--bordered" data-status=true>활성화</span></td>
+                  </tr>
+                  <tr>
+                    <td colspan="7">
+                      <div class="lpop" data-popup-id="lpop1">
+                        <div class="lpop__container">
+                          <div class="lpop__head dragHandle">
+                            <span class="lpop__tit">사용자 목록 상세</span>
+                          </div>
+                          <div class="lpop__content">
+                            <div id="userName" class="lpop__cont-tit">홍길동</div>
+                      
+                            <table class="lpop__user-tbl">
+                              <caption>사용자 상세</caption>
+                              <colgroup>
+                                <col class="col01">
+                                <col class="col02">
+                              </colgroup>
+                      
+                              <tbody>
+                                <tr>
+                                  <th scope="row"><span class="label required">권한그룹</span></th>
+                                  <td>
+                                    <div class="select w-f">
+                                      <select name="" id="authority" class="select__select w-f">
+                                        <option value="" selected>관리자</option>
+                                        <option value="">CS오퍼레이터</option>
+                                      </select>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <th scope="row"><span class="label">직책</span></th>
+                                  <td><input type="text" id="position" class="input-txt w-f" title="직책을 넣어주세요" value="팀장"></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row"><span class="label">연락처</span></th>
+                                  <td><input type="text" id="phoneNum" class="input-txt w-f" readonly value="010-1234-5678"></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row"><span class="label">부서명</span></th>
+                                  <td>
+                                    <div class="select w-f">
+                                      <select name="" id="authority" class="select__select w-f">
+                                        <option value="" selected>M&S</option>
+                                        <option value="">CS팀</option>
+                                      </select>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <th scope="row"><span class="label">이메일</span></th>
+                                  <td><input type="text" id="email" class="input-txt w-f" readonly value="admin.Park@siemens-Healthineers.com"></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row"><span class="label">상태</span></th>
+                                  <td>
+                                    <div class="act-tg">
+                                      <label class="act-tg__switch">
+                                        <input type="checkbox" id="status" class="act-tg__input">
+                                        <span class="act-tg__slider round">
+                                          <i class="act-tg__off">OFF</i>
+                                          <i class="act-tg__on">ON</i>
+                                        </span>
+                                      </label>
+                                      <span class="act-tg__txt">(비활성화)</span>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <th scope="row"><span class="label">설명</span></th>
+                                  <td><input type="text" id="desc" class="input-txt w-f"></td>
+                                </tr>
+                              </tbody>
+                            </table>
+                      
+                            <div class="btn-wrap mt-20">
+                              <button type="button" class="process-btn cancel" onclick="closeLpop('lpop1');"><span class="process-btn__txt">취소</span></button>
+                              <button type="button" class="process-btn confirm"><span class="process-btn__txt">저장</span></button>
+                            </div>
+                      
+                            <button type="button" class="btn-close" onclick="closeLpop('lpop1');" title="사용자 목록 상세 닫기"><img src="/assets/img/admin/close-layer-pop.png"></button>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="pointer-cursor">
+                    <td>4</td>
+                    <td><span class="position">CS오퍼레이터</span></td>
+                    <td><span class="name">정지인</span></td>
+                    <td><span class="position">CS팀</span></td>
+                    <td><span class="email">CC.SSS@siemens-Healthineers.com</span></td>
+                    <td>2024-06-21 13:00:05</td>
+                    <td><span class="status chip chip--active chip--bordered" data-status=true>활성화</span></td>
+                  </tr>
+                  <tr>
+                    <td colspan="7">
+                      <div class="lpop" data-popup-id="lpop1">
+                        <div class="lpop__container">
+                          <div class="lpop__head dragHandle">
+                            <span class="lpop__tit">사용자 목록 상세</span>
+                          </div>
+                          <div class="lpop__content">
+                            <div id="userName" class="lpop__cont-tit">홍길동</div>
+                      
+                            <table class="lpop__user-tbl">
+                              <caption>사용자 상세</caption>
+                              <colgroup>
+                                <col class="col01">
+                                <col class="col02">
+                              </colgroup>
+                      
+                              <tbody>
+                                <tr>
+                                  <th scope="row"><span class="label required">권한그룹</span></th>
+                                  <td>
+                                    <div class="select w-f">
+                                      <select name="" id="authority" class="select__select w-f">
+                                        <option value="" selected>관리자</option>
+                                        <option value="">CS오퍼레이터</option>
+                                      </select>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <th scope="row"><span class="label">직책</span></th>
+                                  <td><input type="text" id="position" class="input-txt w-f" title="직책을 넣어주세요" value="팀장"></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row"><span class="label">연락처</span></th>
+                                  <td><input type="text" id="phoneNum" class="input-txt w-f" readonly value="010-1234-5678"></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row"><span class="label">부서명</span></th>
+                                  <td>
+                                    <div class="select w-f">
+                                      <select name="" id="authority" class="select__select w-f">
+                                        <option value="" selected>M&S</option>
+                                        <option value="">CS팀</option>
+                                      </select>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <th scope="row"><span class="label">이메일</span></th>
+                                  <td><input type="text" id="email" class="input-txt w-f" readonly value="admin.Park@siemens-Healthineers.com"></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row"><span class="label">상태</span></th>
+                                  <td>
+                                    <div class="act-tg">
+                                      <label class="act-tg__switch">
+                                        <input type="checkbox" id="status" class="act-tg__input">
+                                        <span class="act-tg__slider round">
+                                          <i class="act-tg__off">OFF</i>
+                                          <i class="act-tg__on">ON</i>
+                                        </span>
+                                      </label>
+                                      <span class="act-tg__txt">(비활성화)</span>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <th scope="row"><span class="label">설명</span></th>
+                                  <td><input type="text" id="desc" class="input-txt w-f"></td>
+                                </tr>
+                              </tbody>
+                            </table>
+                      
+                            <div class="btn-wrap mt-20">
+                              <button type="button" class="process-btn cancel" onclick="closeLpop('lpop1');"><span class="process-btn__txt">취소</span></button>
+                              <button type="button" class="process-btn confirm"><span class="process-btn__txt">저장</span></button>
+                            </div>
+                      
+                            <button type="button" class="btn-close" onclick="closeLpop('lpop1');" title="사용자 목록 상세 닫기"><img src="/assets/img/admin/close-layer-pop.png"></button>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div class="btn-wrap-after-tbl">
+                <div class="inner">
+                  <button class="btn-default gray">목록보기</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- container-wrap end -->
+
+      <!-- layer-pop -->
+      <form>
+        <div class="lpop" data-popup-id="lpop1">
+          <div class="lpop__container">
+            <div class="lpop__head dragHandle">
+              <span class="lpop__tit">사용자 목록 상세</span>
+            </div>
+            <div class="lpop__content">
+              <div id="userName" class="lpop__user-name"></div>
+        
+              <table class="lpop__user-tbl">
+                <caption>사용자 상세</caption>
+                <colgroup>
+                  <col class="col01">
+                  <col class="col02">
+                </colgroup>
+        
+                <tbody>
+                  <tr>
+                    <th scope="row"><span class="label required">권한그룹</span></th>
+                    <td>
+                      <div class="select w-f">
+                        <select name="" id="authority" class="select__select w-f">
+                          <option value="" selected>관리자</option>
+                          <option value="">CS오퍼레이터</option>
+                        </select>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><span class="label">직책</span></th>
+                    <td><input type="text" id="position" class="input-txt w-f" title="직책을 넣어주세요" value="팀장"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><span class="label">연락처</span></th>
+                    <td><input type="text" id="phoneNum" class="input-txt w-f" readonly value="010-1234-5678"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><span class="label">부서명</span></th>
+                    <td>
+                      <div class="select w-f">
+                        <select name="" id="authority" class="select__select w-f">
+                          <option value="" selected>M&S</option>
+                          <option value="">CS팀</option>
+                        </select>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><span class="label">이메일</span></th>
+                    <td><input type="text" id="email" class="input-txt w-f" readonly value="admin.Park@siemens-Healthineers.com"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><span class="label">상태</span></th>
+                    <td>
+                      <div class="act-tg">
+                        <label class="act-tg__switch">
+                          <input type="checkbox" id="status" class="act-tg__input">
+                          <span class="act-tg__slider round">
+                            <i class="act-tg__off">OFF</i>
+                            <i class="act-tg__on">ON</i>
+                          </span>
+                        </label>
+                        <span class="act-tg__txt">(비활성화)</span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><span class="label">설명</span></th>
+                    <td><input type="text" id="desc" class="input-txt w-f"></td>
+                  </tr>
+                </tbody>
+              </table>
+        
+              <div class="btn-wrap mt-20">
+                <button type="button" class="process-btn cancel" onclick="closeLpop('lpop1');"><span class="process-btn__txt">취소</span></button>
+                <button type="button" class="process-btn confirm"><span class="process-btn__txt">저장</span></button>
+              </div>
+        
+              <button type="button" class="btn-close" onclick="closeLpop('lpop1');" title="사용자 목록 상세 닫기"><img src="/assets/img/admin/close-layer-pop.png"></button>
+            </div>
+          </div>
+        </div>
+      </form>
+      <!-- // layer-pop -->
+
+    </div>
+  </div>
+  <!-- wrap end -->
+
+<script>
+  // ui.js 드래그에이블
+  makeElementsDraggable('.dragHandle', '.lpop');
+
+  const checkbox = document.querySelector('#status');
+  const statusText = document.querySelector('.act-tg__txt');
+
+  function updateStatusText() {
+    if (checkbox.checked) {
+      statusText.textContent = '(활성화)';
+    } else {
+      statusText.textContent = '(비활성화)';
+    }
+  }
+
+  // 초기 상태 설정
+  updateStatusText();
+
+  // 체크박스 상태 변경 시 이벤트 리스너 등록
+  checkbox.addEventListener('change', updateStatusText);
+
+  // 목록 상세 팝업
+  var elements = document.querySelectorAll('.tbl-user-list .pointer-cursor');
+  
+  elements.forEach(function(element) {
+    element.addEventListener('click', function() {
+      openLpop('lpop1');
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>지멘스</title>
+  <link rel="stylesheet" href="/assets/css/admin_style.css" />
+  <link rel="stylesheet" href=" /assets/css/jquery-ui.min.css">
+  <script src=" /assets/js/jquery-3.7.1.min.js"></script>
+  <script src=" /assets/js/jquery-ui.min.js"></script>  
+  <script src="/assets/js/ui.js"></script>
+</head>
+
+
+<body>
+  <!-- wrap -->
+  <div class="wrap">
+    <div class="wrap-flex">
+      <!-- header -->
+      <header class="header">
+  <div class="logo-wrap">
+    <h1 class="logo"><a href="#"><img src="/assets/img/admin/logo@2x.png" alt="dx service issue handling platform"></a></h1>
+  </div>
+
+  <div class="header-container">
+    <div class="profile-box">
+      <div class="profile-box__img-box"><img src="/assets/img/admin/profile@2x.png" alt="회원 사진" class="profile-box__img"></div>
+    
+      <p class="profile-box__welcome-txt">안녕하세요!<br>홍길동님</p>
+    </div>
+    
+    <div class="nav-container">
+      <nav class="gnb">
+        <ul class="gnb__list">
+          <li class="gnb__category"><span class="gnb__category-txt">사용자 관리</span>
+            <ul class="gnb__sub">
+              <li class="gnb__sub-item"><a href="#" class="gnb__sub-btn">사용자 현황 관리</a></li>
+            </ul>
+          </li>
+          <li class="gnb__category"><span class="gnb__category-txt">데이터 관리</span>
+            <ul class="gnb__sub">
+              <li class="gnb__sub-item"><a href="#" class="gnb__sub-btn">병원 등록 현황</a></li>
+              <li class="gnb__sub-item"><a href="#" class="gnb__sub-btn">공휴일 등록</a></li>
+              <li class="gnb__sub-item"><a href="#" class="gnb__sub-btn">PUSH 이력 관리</a></li>
+              <li class="gnb__sub-item"><a href="#" class="gnb__sub-btn">메일 이력 관리</a></li>
+              <li class="gnb__sub-item"><a href="#" class="gnb__sub-btn">접속기록</a></li>
+            </ul>
+          </li>
+          <li class="gnb__category"><span class="gnb__category-txt">QR 코드 관리</span>
+            <ul class="gnb__sub">
+              <li class="gnb__sub-item"><a href="#" class="gnb__sub-btn">QR 코드 발급 현황</a></li>
+              <li class="gnb__sub-item"><a href="#" class="gnb__sub-btn">QR 코드 발급 이력</a></li>
+              <li class="gnb__sub-item"><a href="#" class="gnb__sub-btn">QR 코드 출력</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    
+    <div class="header-foot">
+      <button class="logout" title="로그아웃">
+        <span class="txt">Logout</span>
+      </button>
+
+      <span class="connecting-time">접속시간  2024.07.03 14:21</span>
+    </div>
+  </div>
+</header>
+      <!-- header end -->
+      
+      <!-- container-wrap -->
+      <div class="container-wrap">
+        <div class="container">
+          <div class="cont-head">
+            <div class="ch-h">
+              <div class="ch-h__bc">
+                <span class="ch-h__target">홈</span>
+                <span class="ch-h__target">QR 코드 관리</span>
+                <span class="ch-h__target">QR 코드 출력</span>
+                <span class="ch-h__target on">인쇄하기</span>
+              </div>
+        
+              <div class="ch-h__logo"><img src="/assets/img/Siemens_logo@2x.png" alt="siemens healthineers"></div>
+            </div>
+        
+            <h2 class="adm-page-title mt-20">인쇄하기</h2>
+          </div>
+        
+          <div class="content mt-20">
+            <div class="print-page">
+              <div class="pp-head">
+                <h3 class="pp-tit">출력 화면</h3>
+                <button type="button" class="btn-default gray btn-print" onclick="showPrint('printDiv')">인쇄 하기</button>
+                <button type="button" class="btn-default gray btn-print ml-10">PDF DOWNLOAD</button>
+              </div>
+              
+              <div id="printDiv" class="print-div mt-50">
+                <ul class="pp-list">
+                  <li class="pp-list__item">
+                    <div class="pp-list__inner">
+                      <div class="pp-list__logo"><img src="/assets/img/Siemens_logo@2x.png" alt="siemens healthineers"></div>
+                      <div class="pp-list__qr-info">
+                        <div class="pp-list__qr"><img src="/assets/img/admin/qr-sample.png" alt="qr code"></div>
+                        <div class="pp-list__info">
+                          <span class="pp-list__label"><img src="/assets/img/admin/qr-print-txt.jpg" alt="QR서비스접수"></span>
+                          <div class="pp-list__data"><strong>병원명:</strong>부산대학교병원</div>
+                        </div>
+                      </div>
+                      <p class="pp-list__guide">QR 코드 스캔으로 빠른 서비스 접수가 가능합니다.</p>
+                      <div class="pp-list__step">
+                        <strong class="pp-list__step-head">*접수 방법 :</strong>
+                        <p class="pp-list__step-desc">핸드폰 카메라 켜기→ QR 코드 스캔 → 화면의 링크 클릭 → 병원명 확인 → 장비명/장비모델명(시리얼번호)/고객정보 입력 → 내용 기재 → 등록</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="pp-list__item">
+                    <div class="pp-list__inner">
+                      <div class="pp-list__logo"><img src="/assets/img/Siemens_logo@2x.png" alt="siemens healthineers"></div>
+                      <div class="pp-list__qr-info">
+                        <div class="pp-list__qr"><img src="/assets/img/admin/qr-sample.png" alt="qr code"></div>
+                        <div class="pp-list__info">
+                          <span class="pp-list__label"><img src="/assets/img/admin/qr-print-txt.jpg" alt="QR서비스접수"></span>
+                          <div class="pp-list__data"><strong>병원명:</strong>부산대학교병원</div>
+                        </div>
+                      </div>
+                      <p class="pp-list__guide">QR 코드 스캔으로 빠른 서비스 접수가 가능합니다.</p>
+                      <div class="pp-list__step">
+                        <strong class="pp-list__step-head">*접수 방법 :</strong>
+                        <p class="pp-list__step-desc">핸드폰 카메라 켜기→ QR 코드 스캔 → 화면의 링크 클릭 → 병원명 확인 → 장비명/장비모델명(시리얼번호)/고객정보 입력 → 내용 기재 → 등록</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="pp-list__item">
+                    <div class="pp-list__inner">
+                      <div class="pp-list__logo"><img src="/assets/img/Siemens_logo@2x.png" alt="siemens healthineers"></div>
+                      <div class="pp-list__qr-info">
+                        <div class="pp-list__qr"><img src="/assets/img/admin/qr-sample.png" alt="qr code"></div>
+                        <div class="pp-list__info">
+                          <span class="pp-list__label"><img src="/assets/img/admin/qr-print-txt.jpg" alt="QR서비스접수"></span>
+                          <div class="pp-list__data"><strong>병원명:</strong>부산대학교병원</div>
+                        </div>
+                      </div>
+                      <p class="pp-list__guide">QR 코드 스캔으로 빠른 서비스 접수가 가능합니다.</p>
+                      <div class="pp-list__step">
+                        <strong class="pp-list__step-head">*접수 방법 :</strong>
+                        <p class="pp-list__step-desc">핸드폰 카메라 켜기→ QR 코드 스캔 → 화면의 링크 클릭 → 병원명 확인 → 장비명/장비모델명(시리얼번호)/고객정보 입력 → 내용 기재 → 등록</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="pp-list__item">
+                    <div class="pp-list__inner">
+                      <div class="pp-list__logo"><img src="/assets/img/Siemens_logo@2x.png" alt="siemens healthineers"></div>
+                      <div class="pp-list__qr-info">
+                        <div class="pp-list__qr"><img src="/assets/img/admin/qr-sample.png" alt="qr code"></div>
+                        <div class="pp-list__info">
+                          <span class="pp-list__label"><img src="/assets/img/admin/qr-print-txt.jpg" alt="QR서비스접수"></span>
+                          <div class="pp-list__data"><strong>병원명:</strong>부산대학교병원</div>
+                        </div>
+                      </div>
+                      <p class="pp-list__guide">QR 코드 스캔으로 빠른 서비스 접수가 가능합니다.</p>
+                      <div class="pp-list__step">
+                        <strong class="pp-list__step-head">*접수 방법 :</strong>
+                        <p class="pp-list__step-desc">핸드폰 카메라 켜기→ QR 코드 스캔 → 화면의 링크 클릭 → 병원명 확인 → 장비명/장비모델명(시리얼번호)/고객정보 입력 → 내용 기재 → 등록</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="pp-list__item">
+                    <div class="pp-list__inner">
+                      <div class="pp-list__logo"><img src="/assets/img/Siemens_logo@2x.png" alt="siemens healthineers"></div>
+                      <div class="pp-list__qr-info">
+                        <div class="pp-list__qr"><img src="/assets/img/admin/qr-sample.png" alt="qr code"></div>
+                        <div class="pp-list__info">
+                          <span class="pp-list__label"><img src="/assets/img/admin/qr-print-txt.jpg" alt="QR서비스접수"></span>
+                          <div class="pp-list__data"><strong>병원명:</strong>부산대학교병원</div>
+                        </div>
+                      </div>
+                      <p class="pp-list__guide">QR 코드 스캔으로 빠른 서비스 접수가 가능합니다.</p>
+                      <div class="pp-list__step">
+                        <strong class="pp-list__step-head">*접수 방법 :</strong>
+                        <p class="pp-list__step-desc">핸드폰 카메라 켜기→ QR 코드 스캔 → 화면의 링크 클릭 → 병원명 확인 → 장비명/장비모델명(시리얼번호)/고객정보 입력 → 내용 기재 → 등록</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="pp-list__item">
+                    <div class="pp-list__inner">
+                      <div class="pp-list__logo"><img src="/assets/img/Siemens_logo@2x.png" alt="siemens healthineers"></div>
+                      <div class="pp-list__qr-info">
+                        <div class="pp-list__qr"><img src="/assets/img/admin/qr-sample.png" alt="qr code"></div>
+                        <div class="pp-list__info">
+                          <span class="pp-list__label"><img src="/assets/img/admin/qr-print-txt.jpg" alt="QR서비스접수"></span>
+                          <div class="pp-list__data"><strong>병원명:</strong>부산대학교병원</div>
+                        </div>
+                      </div>
+                      <p class="pp-list__guide">QR 코드 스캔으로 빠른 서비스 접수가 가능합니다.</p>
+                      <div class="pp-list__step">
+                        <strong class="pp-list__step-head">*접수 방법 :</strong>
+                        <p class="pp-list__step-desc">핸드폰 카메라 켜기→ QR 코드 스캔 → 화면의 링크 클릭 → 병원명 확인 → 장비명/장비모델명(시리얼번호)/고객정보 입력 → 내용 기재 → 등록</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="pp-list__item">
+                    <div class="pp-list__inner">
+                      <div class="pp-list__logo"><img src="/assets/img/Siemens_logo@2x.png" alt="siemens healthineers"></div>
+                      <div class="pp-list__qr-info">
+                        <div class="pp-list__qr"><img src="/assets/img/admin/qr-sample.png" alt="qr code"></div>
+                        <div class="pp-list__info">
+                          <span class="pp-list__label"><img src="/assets/img/admin/qr-print-txt.jpg" alt="QR서비스접수"></span>
+                          <div class="pp-list__data"><strong>병원명:</strong>부산대학교병원</div>
+                        </div>
+                      </div>
+                      <p class="pp-list__guide">QR 코드 스캔으로 빠른 서비스 접수가 가능합니다.</p>
+                      <div class="pp-list__step">
+                        <strong class="pp-list__step-head">*접수 방법 :</strong>
+                        <p class="pp-list__step-desc">핸드폰 카메라 켜기→ QR 코드 스캔 → 화면의 링크 클릭 → 병원명 확인 → 장비명/장비모델명(시리얼번호)/고객정보 입력 → 내용 기재 → 등록</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="pp-list__item">
+                    <div class="pp-list__inner">
+                      <div class="pp-list__logo"><img src="/assets/img/Siemens_logo@2x.png" alt="siemens healthineers"></div>
+                      <div class="pp-list__qr-info">
+                        <div class="pp-list__qr"><img src="/assets/img/admin/qr-sample.png" alt="qr code"></div>
+                        <div class="pp-list__info">
+                          <span class="pp-list__label"><img src="/assets/img/admin/qr-print-txt.jpg" alt="QR서비스접수"></span>
+                          <div class="pp-list__data"><strong>병원명:</strong>부산대학교병원</div>
+                        </div>
+                      </div>
+                      <p class="pp-list__guide">QR 코드 스캔으로 빠른 서비스 접수가 가능합니다.</p>
+                      <div class="pp-list__step">
+                        <strong class="pp-list__step-head">*접수 방법 :</strong>
+                        <p class="pp-list__step-desc">핸드폰 카메라 켜기→ QR 코드 스캔 → 화면의 링크 클릭 → 병원명 확인 → 장비명/장비모델명(시리얼번호)/고객정보 입력 → 내용 기재 → 등록</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="pp-list__item">
+                    <div class="pp-list__inner">
+                      <div class="pp-list__logo"><img src="/assets/img/Siemens_logo@2x.png" alt="siemens healthineers"></div>
+                      <div class="pp-list__qr-info">
+                        <div class="pp-list__qr"><img src="/assets/img/admin/qr-sample.png" alt="qr code"></div>
+                        <div class="pp-list__info">
+                          <span class="pp-list__label"><img src="/assets/img/admin/qr-print-txt.jpg" alt="QR서비스접수"></span>
+                          <div class="pp-list__data"><strong>병원명:</strong>부산대학교병원</div>
+                        </div>
+                      </div>
+                      <p class="pp-list__guide">QR 코드 스캔으로 빠른 서비스 접수가 가능합니다.</p>
+                      <div class="pp-list__step">
+                        <strong class="pp-list__step-head">*접수 방법 :</strong>
+                        <p class="pp-list__step-desc">핸드폰 카메라 켜기→ QR 코드 스캔 → 화면의 링크 클릭 → 병원명 확인 → 장비명/장비모델명(시리얼번호)/고객정보 입력 → 내용 기재 → 등록</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="pp-list__item">
+                    <div class="pp-list__inner">
+                      <div class="pp-list__logo"><img src="/assets/img/Siemens_logo@2x.png" alt="siemens healthineers"></div>
+                      <div class="pp-list__qr-info">
+                        <div class="pp-list__qr"><img src="/assets/img/admin/qr-sample.png" alt="qr code"></div>
+                        <div class="pp-list__info">
+                          <span class="pp-list__label"><img src="/assets/img/admin/qr-print-txt.jpg" alt="QR서비스접수"></span>
+                          <div class="pp-list__data"><strong>병원명:</strong>부산대학교병원</div>
+                        </div>
+                      </div>
+                      <p class="pp-list__guide">QR 코드 스캔으로 빠른 서비스 접수가 가능합니다.</p>
+                      <div class="pp-list__step">
+                        <strong class="pp-list__step-head">*접수 방법 :</strong>
+                        <p class="pp-list__step-desc">핸드폰 카메라 켜기→ QR 코드 스캔 → 화면의 링크 클릭 → 병원명 확인 → 장비명/장비모델명(시리얼번호)/고객정보 입력 → 내용 기재 → 등록</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="pp-list__item">
+                    <div class="pp-list__inner">
+                      <div class="pp-list__logo"><img src="/assets/img/Siemens_logo@2x.png" alt="siemens healthineers"></div>
+                      <div class="pp-list__qr-info">
+                        <div class="pp-list__qr"><img src="/assets/img/admin/qr-sample.png" alt="qr code"></div>
+                        <div class="pp-list__info">
+                          <span class="pp-list__label"><img src="/assets/img/admin/qr-print-txt.jpg" alt="QR서비스접수"></span>
+                          <div class="pp-list__data"><strong>병원명:</strong>부산대학교병원</div>
+                        </div>
+                      </div>
+                      <p class="pp-list__guide">QR 코드 스캔으로 빠른 서비스 접수가 가능합니다.</p>
+                      <div class="pp-list__step">
+                        <strong class="pp-list__step-head">*접수 방법 :</strong>
+                        <p class="pp-list__step-desc">핸드폰 카메라 켜기→ QR 코드 스캔 → 화면의 링크 클릭 → 병원명 확인 → 장비명/장비모델명(시리얼번호)/고객정보 입력 → 내용 기재 → 등록</p>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- container-wrap end -->
+    </div>
+  </div>
+  <!-- wrap end -->
+  
+<script>
+  // Create a new style element
+  var style = `
+    <style>
+      * {margin: 0; padding: 0; box-sizing: border-box;}
+      .pp-list {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 100%;
+        height: 100vh;
+      }
+      .pp-list .pp-list__item {
+        display: flex;
+        align-items: center;
+        height: 33.3333%;
+      }
+      .pp-list .pp-list__inner {
+        width: 80mm;
+        height: 50mm;
+        margin-right: -1px;
+        margin-bottom: -1px;
+        padding: 4mm 4mm 4mm 5mm;
+        border: solid 1px #e6e6e6;
+        background-color: #fff;
+      }
+      .pp-list .pp-list__qr-info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .pp-list .pp-list__logo {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+      }
+      .pp-list .pp-list__logo img {
+        width: 15mm;
+      }
+      .pp-list .pp-list__qr {
+        max-width: 44mm;
+        width: 39%;
+      }
+      .pp-list .pp-list__qr img {
+        width: 100%;
+      }
+    
+      .pp-list .pp-list__info {
+        width: 65%;
+        text-align: right;
+      }
+
+      .pp-list .pp-list__label {
+        display: block;
+        font-size: 0;
+      }
+
+      .pp-list .pp-list__label img {
+        max-width: 30mm;
+        width: 100%;
+      }
+
+      .pp-list .pp-list__data {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 2.5mm;
+        font-family: 'malgun gothic';
+        font-size: 8px;
+      }
+
+      .pp-list .pp-list__data strong {
+        width: 16mm;
+        margin-right: 1.2mm;
+      }
+
+      .pp-list .pp-list__guide {
+        margin-top: 3mm;
+        font-weight: 900;
+        font-size: 8px;
+        font-family: 'malgun gothic';
+      }
+
+      .pp-list .pp-list__step {
+        display: flex;
+        margin-top: 1mm;
+      }
+
+      .pp-list .pp-list__step-head {
+        width: 10mm;
+        font-weight: 900;
+        font-size: 7px;
+        font-family: 'malgun gothic';
+      }
+
+      .pp-list .pp-list__step-desc {
+        width: calc(100% - 10mm);
+        margin-left: 1mm;
+        font-size: 7px;
+        font-family: 'malgun gothic';
+      }
+    </style>
+  `;
+
+  function showPrint(areaID) {
+    let printContent = document.getElementById(areaID).innerHTML;
+    let originalContent = document.body.innerHTML;
+    document.body.innerHTML = printContent + style;
+
+    // DOM 업데이트 후 프린트 실행
+    setTimeout(() => {
+        window.print();
+        document.body.innerHTML = originalContent;
+    }, 10);
+  }
+</script>
+</body>
+</html>

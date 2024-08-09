@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>지멘스</title>
+  <link rel="stylesheet" href="/assets/css/admin_style.css" />
+  <link rel="stylesheet" href=" /assets/css/jquery-ui.min.css">
+  <script src=" /assets/js/jquery-3.7.1.min.js"></script>
+  <script src=" /assets/js/jquery-ui.min.js"></script>  
+  <script src="/assets/js/ui.js"></script>
+</head>
+
+
+<body>
+  <!-- wrap -->
+  <div class="wrap">
+    <div class="wrap-flex">
+      <!-- header -->
+      <header class="header">
+  <div class="logo-wrap">
+    <h1 class="logo"><a href="#"><img src="/assets/img/admin/logo@2x.png" alt="dx service issue handling platform"></a></h1>
+  </div>
+
+  <div class="header-container">
+    <div class="profile-box">
+      <div class="profile-box__img-box"><img src="/assets/img/admin/profile@2x.png" alt="회원 사진" class="profile-box__img"></div>
+    
+      <p class="profile-box__welcome-txt">안녕하세요!<br>홍길동님</p>
+    </div>
+    
+    <div class="nav-container">
+      <nav class="gnb">
+        <ul class="gnb__list">
+          <li class="gnb__category"><span class="gnb__category-txt">사용자 관리</span>
+            <ul class="gnb__sub">
+              <li class="gnb__sub-item"><a href="#" class="gnb__sub-btn">사용자 현황 관리</a></li>
+            </ul>
+          </li>
+          <li class="gnb__category"><span class="gnb__category-txt">데이터 관리</span>
+            <ul class="gnb__sub">
+              <li class="gnb__sub-item"><a href="#" class="gnb__sub-btn">병원 등록 현황</a></li>
+              <li class="gnb__sub-item"><a href="#" class="gnb__sub-btn">공휴일 등록</a></li>
+              <li class="gnb__sub-item"><a href="#" class="gnb__sub-btn">PUSH 이력 관리</a></li>
+              <li class="gnb__sub-item"><a href="#" class="gnb__sub-btn">메일 이력 관리</a></li>
+              <li class="gnb__sub-item"><a href="#" class="gnb__sub-btn">접속기록</a></li>
+            </ul>
+          </li>
+          <li class="gnb__category"><span class="gnb__category-txt">QR 코드 관리</span>
+            <ul class="gnb__sub">
+              <li class="gnb__sub-item"><a href="#" class="gnb__sub-btn">QR 코드 발급 현황</a></li>
+              <li class="gnb__sub-item"><a href="#" class="gnb__sub-btn">QR 코드 발급 이력</a></li>
+              <li class="gnb__sub-item"><a href="#" class="gnb__sub-btn">QR 코드 출력</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    
+    <div class="header-foot">
+      <button class="logout" title="로그아웃">
+        <span class="txt">Logout</span>
+      </button>
+
+      <span class="connecting-time">접속시간  2024.07.03 14:21</span>
+    </div>
+  </div>
+</header>
+      <!-- header end -->
+      
+      <!-- container-wrap -->
+      <div class="container-wrap">
+        <div class="container">
+          <div class="cont-head">
+            <div class="ch-h">
+              <div class="ch-h__bc">
+                <span class="ch-h__target">홈</span>
+                <span class="ch-h__target">데이터 관리</span>
+                <span class="ch-h__target on">공휴일 등록</span>
+              </div>
+        
+              <div class="ch-h__logo"><img src="/assets/img/Siemens_logo@2x.png" alt="siemens healthineers"></div>
+            </div>
+        
+            <h2 class="adm-page-title mt-20">공휴일 등록</h2>
+          </div>
+        
+          <div class="content mt-20">
+            <div class="sch-box">
+              <div class="sch-box__sub">
+                <div class="radio-group">
+                  <div class="radio">
+                    <input type="radio" id="user1" name="user" checked class="radio__input">
+                    <label for="user1" class="radio__label">공휴일명</label>
+                  </div>
+                </div>
+                
+                <input type="text" class="sch-box__input input-txt ml-20" title="공휴일명 입력하세요">
+                
+                <div class="datepicker ml-30">
+                  <label for="dateStart" class="input__label">기간</label>
+                  <input type="text" id="dateStart" title="시작 기간" class="sch-box__input input-txt ml-5">
+                  <span class="datepicker__wave">~</span>
+                  <input type="text" id="dateEnd" title="종료 기간" class="sch-box__input input-txt">
+                </div>
+                
+                <div class="select sch-box__select ml-30">
+                  <label for="condition" class="select__label">사용유무</label>
+                
+                  <select name="" id="condition" class="select__select">
+                    <option value="">선택1</option>
+                    <option value="">선택2</option>
+                    <option value="">선택3</option>
+                    <option value="">선택4</option>
+                    <option value="">선택5</option>
+                  </select>
+                </div>
+              </div>
+        
+              <button type="button" class="sch-box__btn-sch btn-default confirm">검색</button>
+            </div>
+        
+            <div class="table mt-20">
+              <div class="tbl-row-cnt">
+                <span class="trc-txt">총 항목 3개</span>
+              </div>
+
+              <table class="tbl-list holyday-list">
+                <caption>공휴일 등록 현황 게시판</caption>
+        
+                <colgroup>
+                  <col class="hol-l-col01">
+                  <col class="hol-l-col02">
+                  <col class="hol-l-col03">
+                  <col class="hol-l-col04">
+                  <col class="hol-l-col05">
+                </colgroup>
+        
+                <thead>
+                  <tr>
+                    <th><input type="checkbox" class="checkAll custom-cbox" onchange="toggleCheckboxes('checkAll', 'all-check-sub');"></th>
+                    <th>NO</th>
+                    <th>날짜</th>
+                    <th>공휴일 명</th>
+                    <th>사용 유무</th>
+                  </tr>
+                </thead>
+        
+                <tbody>
+                  <tr class="pointer-cursor last-day">
+                    <td><input type="checkbox" class="all-check-sub custom-cbox" disabled title="전체체크하기" onchange="toggleCheckboxes('checkAll', 'all-check-sub');"></td>
+                    <td>1</td>
+                    <td>2024-08-04</td>
+                    <td>목포한국병원</td>
+                    <td><span class="status chip chip--active chip--bordered">활성화</span></td>
+                  </tr>
+                  <tr class="pointer-cursor" onclick="openLpop('lpop1');">
+                    <td><input type="checkbox" class="all-check-sub custom-cbox" title="전체체크하기" onchange="toggleCheckboxes('checkAll', 'all-check-sub');"></td>
+                    <td>1</td>
+                    <td>2024-10-04</td>
+                    <td>목포한국병원</td>
+                    <td><span class="status chip chip--active chip--bordered">활성화</span></td>
+                  </tr>
+                  <tr class="lpop-row">
+                    <td colspan="5">
+                      <div class="lpop" data-popup-id="lpop1">
+                        <div class="lpop__container">
+                          <div class="lpop__head dragHandle">
+                            <span class="lpop__tit">공휴일 상세</span>
+                          </div>
+                          <div class="lpop__content">
+                            <div class="lpop__cont-tit">공휴일 편집</div>
+                      
+                            <table class="lpop__user-tbl">
+                              <caption>공휴일 상세</caption>
+                              <colgroup>
+                                <col class="col01">
+                                <col class="col02">
+                              </colgroup>
+                      
+                              <tbody>
+                                <tr>
+                                  <th scope="row"><span class="label required">날짜</span></th>
+                                  <td>
+                                    <div class="datepicker">
+                                      <input type="text" id="date1" title="날짜를 입력해 주세요" class="sch-box__input input-txt ml-5">
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <th scope="row"><span class="label required">공휴일 명</span></th>
+                                  <td><input type="text" id="position" class="input-txt w-f" title="공휴일 명을 넣어주세요" value="공휴일 명"></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row"><span class="label required">사용유무</span></th>
+                                  <td>
+                                    <div class="act-tg">
+                                      <label class="act-tg__switch">
+                                        <input type="checkbox" checked id="status" class="act-tg__input">
+                                        <span class="act-tg__slider round">
+                                          <i class="act-tg__off">OFF</i>
+                                          <i class="act-tg__on">ON</i>
+                                        </span>
+                                      </label>
+                                      <span class="act-tg__txt">(활성화)</span>
+                                    </div>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                      
+                            <div class="btn-wrap mt-20">
+                              <button type="button" class="process-btn cancel" onclick="closeLpop('lpop1');"><span class="process-btn__txt">취소</span></button>
+                              <button type="button" class="process-btn confirm"><span class="process-btn__txt">저장</span></button>
+                            </div>
+                      
+                            <button type="button" class="btn-close" onclick="closeLpop('lpop1');" title="사용자 목록 상세 닫기"><img src="/assets/img/admin/close-layer-pop.png"></button>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="pointer-cursor" onclick="openLpop('lpop2');">
+                    <td><input type="checkbox" class="all-check-sub custom-cbox" title="체크하기" onchange="toggleCheckboxes('checkAll', 'all-check-sub');"></td>
+                    <td>2</td>
+                    <td>2024-10-04</td>
+                    <td>목포한국병원</td>
+                    <td><span class="status chip chip--disabled chip--bordered">비활성화</span></td>
+                  </tr>
+                  <tr class="lpop-row">
+                    <td colspan="5">
+                      <div class="lpop" data-popup-id="lpop2">
+                        <div class="lpop__container">
+                          <div class="lpop__head dragHandle">
+                            <span class="lpop__tit">공휴일 상세</span>
+                          </div>
+                          <div class="lpop__content">
+                            <div class="lpop__cont-tit">공휴일 편집</div>
+                      
+                            <table class="lpop__user-tbl">
+                              <caption>공휴일 상세</caption>
+                              <colgroup>
+                                <col class="col01">
+                                <col class="col02">
+                              </colgroup>
+                      
+                              <tbody>
+                                <tr>
+                                  <th scope="row"><span class="label required">날짜</span></th>
+                                  <td>
+                                    <div class="datepicker">
+                                      <input type="text" id="date1" title="날짜를 입력해 주세요" class="sch-box__input input-txt ml-5">
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <th scope="row"><span class="label required">공휴일 명</span></th>
+                                  <td><input type="text" id="position" class="input-txt w-f" title="공휴일 명을 넣어주세요" value="공휴일 명"></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row"><span class="label required">사용유무</span></th>
+                                  <td>
+                                    <div class="act-tg">
+                                      <label class="act-tg__switch">
+                                        <input type="checkbox" checked id="status" class="act-tg__input">
+                                        <span class="act-tg__slider round">
+                                          <i class="act-tg__off">OFF</i>
+                                          <i class="act-tg__on">ON</i>
+                                        </span>
+                                      </label>
+                                      <span class="act-tg__txt">(활성화)</span>
+                                    </div>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                      
+                            <div class="btn-wrap mt-20">
+                              <button type="button" class="process-btn cancel" onclick="closeLpop('lpop2');"><span class="process-btn__txt">취소</span></button>
+                              <button type="button" class="process-btn confirm"><span class="process-btn__txt">저장</span></button>
+                            </div>
+                      
+                            <button type="button" class="btn-close" onclick="closeLpop('lpop2');" title="사용자 목록 상세 닫기"><img src="/assets/img/admin/close-layer-pop.png"></button>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="btn-wrap-after-tbl">
+              <div class="inner">
+                <button class="btn-default delete" onclick="openAlert('del-holiday');">삭제</button>
+                <button class="btn-default confirm2" onclick="openLpop('reg-holiday');">공휴일 등록</button>
+              </div>
+            </div>
+
+            <div class="pg mt-30">
+              <ul class="pg__list">
+                <li class="pg__item"><a href="#" class="pg__num"><img src="/assets/img/admin/bo-prev-all.png" alt="처음"></a></li>
+                <li class="pg__item"><a href="#" class="pg__num"><img src="/assets/img/admin/bo-prev.png" alt="이전"></a></li>
+                <li class="pg__item"><a href="#" class="pg__num active">1</a></li>
+                <li class="pg__item"><a href="#" class="pg__num">2</a></li>
+                <li class="pg__item"><a href="#" class="pg__num">3</a></li>
+                <li class="pg__item"><a href="#" class="pg__num">4</a></li>
+                <li class="pg__item"><a href="#" class="pg__num">5</a></li>
+                <li class="pg__item"><a href="#" class="pg__num">6</a></li>
+                <li class="pg__item"><a href="#" class="pg__num">7</a></li>
+                <li class="pg__item"><a href="#" class="pg__num">8</a></li>
+                <li class="pg__item"><a href="#" class="pg__num">9</a></li>
+                <li class="pg__item"><a href="#" class="pg__num">10</a></li>
+                <li class="pg__item"><a href="#" class="pg__num"><img src="/assets/img/admin/bo-next.png" alt="다음"></a></li>
+                <li class="pg__item"><a href="#" class="pg__num"><img src="/assets/img/admin/bo-next-all.png" alt="마지막"></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- container-wrap end -->
+
+      <div class="alert" data-alert-id="del-holiday">
+        <div class="alert__tit">공휴일 2건 삭제</div>
+        <p class="alert__txt">선택하신 공휴일을 정말 삭제하시겠습니까?</p>
+        <div class="btn-wrap mt-27">
+          <button type="button" class="process-btn cancel" onclick="closeAlert('del-holiday');"><span class="process-btn__txt">아니오</span></button>
+          <button type="button" class="process-btn confirm-green" onclick="closeAlert('del-holiday');"><span class="process-btn__txt">네</span></button>
+        </div>
+      </div>
+
+      <div class="lpop" data-popup-id="reg-holiday">
+        <div class="lpop__container">
+          <div class="lpop__head dragHandle">
+            <span class="lpop__tit">공휴일 등록</span>
+          </div>
+          <div class="lpop__content">
+            <div class="lpop__cont-tit">공휴일 등록</div>
+      
+            <table class="lpop__user-tbl">
+              <caption>공휴일 등록</caption>
+              <colgroup>
+                <col class="col01">
+                <col class="col02">
+              </colgroup>
+      
+              <tbody>
+                <tr>
+                  <th scope="row"><span class="label required">날짜</span></th>
+                  <td>
+                    <div class="datepicker">
+                      <input type="text" title="날짜를 입력해 주세요" class="sch-box__input input-txt">
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row"><span class="label required">공휴일 명</span></th>
+                  <td><input type="text" id="position" class="input-txt w-f" title="공휴일 명을 넣어주세요"></td>
+                </tr>
+                <tr>
+                  <th scope="row"><span class="label required">사용유무</span></th>
+                  <td>
+                    <div class="act-tg">
+                      <label class="act-tg__switch">
+                        <input type="checkbox" checked id="status" class="act-tg__input">
+                        <span class="act-tg__slider round">
+                          <i class="act-tg__off">OFF</i>
+                          <i class="act-tg__on">ON</i>
+                        </span>
+                      </label>
+                      <span class="act-tg__txt">(활성화)</span>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+      
+            <div class="btn-wrap mt-20">
+              <button type="button" class="process-btn cancel" onclick="closeLpop('reg-holiday');"><span class="process-btn__txt">취소</span></button>
+              <button type="button" class="process-btn confirm"><span class="process-btn__txt">저장</span></button>
+            </div>
+      
+            <button type="button" class="btn-close" onclick="closeLpop('reg-holiday');" title="사용자 목록 상세 닫기"><img src="/assets/img/admin/close-layer-pop.png"></button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- wrap end -->
+<script>
+  // ui.js 드래그에이블
+  makeElementsDraggable('.dragHandle', '.lpop');
+
+  const checkbox = document.querySelector('#status');
+  const statusText = document.querySelector('.act-tg__txt');
+
+  function updateStatusText(textContent) {
+    if (checkbox.checked) {
+      statusText.textContent = '(활성화)';
+    } else {
+      statusText.textContent = '(비활성화)';
+    }
+  }
+
+  // 초기 상태 설정
+  updateStatusText();
+
+  // 체크박스 상태 변경 시 이벤트 리스너 등록
+  checkbox.addEventListener('change', updateStatusText);
+
+  // tr에 onclick이 있어서 체크박스 이벤트 방지
+  document.querySelectorAll('.all-check-sub').forEach(function(checkbox) {
+    checkbox.addEventListener('click', function(event) {
+      event.stopPropagation();
+    });
+  });
+
+  document.addEventListener('DOMContentLoaded', function () {
+    // 데이트피커 실행
+    $(".datepicker .input-txt").datepicker({
+      showOn: "focus",
+      // buttonImageOnly: true,
+      // buttonImage: "/assets/img/admin/ico-calendar.png",
+      changeMonth: true, // True if month can be selected directly, false if only prev/next
+      changeYear: true, // True if year can be selected directly, false if only prev/next
+      //buttonText: "Calendar",
+    });
+  });
+</script>
+</body>
+</html>
